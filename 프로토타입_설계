@@ -1,0 +1,743 @@
+<svg width="1600" height="4000" viewBox="0 0 1600 4000" xmlns="http://www.w3.org/2000/svg">
+  <!-- 전체 배경 -->
+  <rect width="1600" height="4000" fill="#f5f7fa"/>
+  
+  <!-- 제목 -->
+  <text x="800" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2c3e50">하이오더 리뷰 피드백 시스템 - 개선된 화면설계 (팀 피드백 반영)</text>
+  
+  <!-- =============== 1. 로그인 화면 (개선) =============== -->
+  <g transform="translate(50, 60)">
+    <rect x="0" y="0" width="280" height="500" rx="20" fill="#ffffff" stroke="#e0e0e0" stroke-width="2"/>
+    <text x="140" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333">로그인</text>
+    
+    <!-- 로고 영역 -->
+    <rect x="90" y="60" width="100" height="60" rx="10" fill="#3498db"/>
+    <text x="140" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">HiOrder</text>
+    
+    <!-- 역할 선택 탭 (신규) -->
+    <text x="30" y="155" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">로그인 유형</text>
+    <rect x="30" y="165" width="100" height="35" rx="5" fill="#f39c12"/>
+    <text x="80" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">🛍️ 고객</text>
+    <rect x="140" y="165" width="100" height="35" rx="5" fill="white" stroke="#ddd"/>
+    <text x="190" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#666">🏪 점주</text>
+    
+    <!-- 로그인 폼 -->
+    <rect x="30" y="220" width="220" height="40" rx="5" fill="#f8f9fa" stroke="#ddd"/>
+    <text x="40" y="245" font-family="Arial, sans-serif" font-size="11" fill="#666">아이디</text>
+    
+    <rect x="30" y="270" width="220" height="40" rx="5" fill="#f8f9fa" stroke="#ddd"/>
+    <text x="40" y="295" font-family="Arial, sans-serif" font-size="11" fill="#666">비밀번호</text>
+    
+    <!-- 로그인 버튼 (역할별 색상) -->
+    <rect x="30" y="330" width="220" height="45" rx="5" fill="#f39c12"/>
+    <text x="140" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">고객 로그인</text>
+    
+    <!-- 하단 링크 -->
+    <text x="70" y="400" font-family="Arial, sans-serif" font-size="10" fill="#666">아이디 찾기</text>
+    <text x="140" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">|</text>
+    <text x="210" y="400" text-anchor="end" font-family="Arial, sans-serif" font-size="10" fill="#666">비밀번호 찾기</text>
+    
+    <rect x="30" y="420" width="220" height="35" rx="5" fill="white" stroke="#f39c12"/>
+    <text x="140" y="442" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#f39c12">회원가입</text>
+  </g>
+  
+  <!-- =============== 2. 고객 메인화면 (개선) =============== -->
+  <g transform="translate(350, 60)">
+    <rect x="0" y="0" width="280" height="500" rx="20" fill="#ffffff" stroke="#e0e0e0" stroke-width="2"/>
+    
+    <!-- 헤더 (고객용 따뜻한 색상) -->
+    <rect x="0" y="0" width="280" height="50" rx="20" fill="#f39c12"/>
+    <text x="140" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">맛집 추천</text>
+    <circle cx="240" cy="25" r="12" fill="rgba(255,255,255,0.2)"/>
+    <text x="240" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">👤</text>
+    
+    <!-- 실시간 상태 표시 (신규) -->
+    <rect x="20" y="65" width="240" height="25" rx="12" fill="#e8f5e8"/>
+    <circle cx="30" cy="77" r="3" fill="#27ae60"/>
+    <text x="40" y="82" font-family="Arial, sans-serif" font-size="9" fill="#27ae60">🌍 실시간 업데이트 중...</text>
+    
+    <!-- 위치 및 날씨 정보 (강화) -->
+    <rect x="20" y="100" width="240" height="35" rx="8" fill="#fff8e8" stroke="#f39c12"/>
+    <text x="30" y="115" font-family="Arial, sans-serif" font-size="10" fill="#333">📍 서울 강남구</text>
+    <text x="30" y="128" font-family="Arial, sans-serif" font-size="9" fill="#666">☀️ 맑음 23°C • 야외 식사 추천!</text>
+    
+    <!-- 취향 태그 (개선) -->
+    <text x="20" y="155" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">나의 취향</text>
+    <text x="240" y="155" text-anchor="end" font-family="Arial, sans-serif" font-size="9" fill="#f39c12">편집 ></text>
+    <rect x="20" y="160" width="40" height="20" rx="10" fill="#e74c3c"/>
+    <text x="40" y="173" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">매운맛</text>
+    <rect x="65" y="160" width="30" height="20" rx="10" fill="#27ae60"/>
+    <text x="80" y="173" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">비건</text>
+    <rect x="100" y="160" width="30" height="20" rx="10" fill="#3498db"/>
+    <text x="115" y="173" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">혼밥</text>
+    
+    <!-- AI 추천 라벨 (신규) -->
+    <rect x="20" y="190" width="240" height="25" rx="5" fill="#e8f4fd" stroke="#3498db"/>
+    <text x="30" y="205" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#3498db">🤖 AI 맞춤 추천 (신뢰도 92%)</text>
+    
+    <!-- 추천 음식점 카드 1 (개선) -->
+    <rect x="20" y="225" width="240" height="85" rx="8" fill="#fff" stroke="#f39c12" stroke-width="2"/>
+    <rect x="30" y="235" width="50" height="50" rx="5" fill="#ddd"/>
+    <text x="55" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#666">음식점</text>
+    <rect x="85" y="235" width="30" height="12" rx="6" fill="#ff6b6b"/>
+    <text x="100" y="244" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">LIVE</text>
+    <text x="90" y="255" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">마라탕 전문점</text>
+    <text x="90" y="268" font-family="Arial, sans-serif" font-size="9" fill="#666">중식 • 도보 5분 • 영업중</text>
+    <text x="90" y="280" font-family="Arial, sans-serif" font-size="9" fill="#e74c3c">⭐ 4.5 (128) • 리뷰 3개 신규</text>
+    <rect x="90" y="285" width="25" height="12" rx="6" fill="#e74c3c"/>
+    <text x="102" y="293" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">매운맛</text>
+    <rect x="120" y="285" width="30" height="12" rx="6" fill="#27ae60"/>
+    <text x="135" y="293" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">가성비</text>
+    
+    <!-- 더 많은 추천 -->
+    <rect x="20" y="320" width="240" height="60" rx="8" fill="#f8f9fa" stroke="#ddd"/>
+    <text x="140" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">+12개 추천 음식점 더보기</text>
+    <text x="140" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#999">취향 기반 • 거리순 • 평점순</text>
+    <rect x="100" y="360" width="80" height="15" rx="7" fill="#f39c12"/>
+    <text x="140" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">전체 보기</text>
+    
+    <!-- 하단 네비게이션 (고객용) -->
+    <rect x="0" y="450" width="280" height="50" fill="#fff8e8" stroke="#f39c12"/>
+    <text x="46" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#f39c12">🏠</text>
+    <text x="46" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#f39c12">홈</text>
+    <text x="93" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">🔍</text>
+    <text x="93" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#666">검색</text>
+    <text x="140" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">📝</text>
+    <text x="140" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#666">리뷰</text>
+    <text x="187" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">👤</text>
+    <text x="187" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#666">MY</text>
+    <text x="234" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">⚙️</text>
+    <text x="234" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#666">설정</text>
+  </g>
+  
+  <!-- =============== 3. 점주 메인화면 (개선) =============== -->
+  <g transform="translate(650, 60)">
+    <rect x="0" y="0" width="280" height="500" rx="20" fill="#ffffff" stroke="#e0e0e0" stroke-width="2"/>
+    
+    <!-- 헤더 (점주용 전문적 색상) -->
+    <rect x="0" y="0" width="280" height="50" rx="20" fill="#2c3e50"/>
+    <circle cx="25" cy="25" r="8" fill="rgba(255,255,255,0.3)"/>
+    <text x="25" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">←</text>
+    <text x="140" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">매장 분석 대시보드</text>
+    <circle cx="255" cy="25" r="12" fill="rgba(255,255,255,0.2)"/>
+    <text x="255" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">⚙️</text>
+    
+    <!-- 실시간 알림 (신규) -->
+    <rect x="20" y="65" width="240" height="25" rx="12" fill="#fff2e8" stroke="#f39c12"/>
+    <circle cx="30" cy="77" r="3" fill="#f39c12"/>
+    <text x="40" y="82" font-family="Arial, sans-serif" font-size="9" fill="#f39c12">🔔 새 리뷰 2건 • 댓글 1건 대기중</text>
+    
+    <!-- 매장 정보 카드 (개선) -->
+    <rect x="20" y="100" width="240" height="45" rx="8" fill="#e8f4fd" stroke="#3498db"/>
+    <text x="30" y="115" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">맛있는 식당</text>
+    <text x="30" y="128" font-family="Arial, sans-serif" font-size="9" fill="#666">서울 강남구 • 한식 • 구독: 스탠다드</text>
+    <text x="30" y="140" font-family="Arial, sans-serif" font-size="9" fill="#27ae60">🟢 영업중 • 실시간 연동됨</text>
+    
+    <!-- 주요 지표 요약 (신규) -->
+    <rect x="20" y="155" width="240" height="50" rx="8" fill="#f8fdf8" stroke="#27ae60"/>
+    <text x="30" y="170" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#333">📊 오늘 현황</text>
+    <text x="40" y="185" font-family="Arial, sans-serif" font-size="9" fill="#333">• 신규 리뷰: 3개 (+50%)</text>
+    <text x="40" y="195" font-family="Arial, sans-serif" font-size="9" fill="#333">• 평점: 4.3→4.5 (↗️0.2)</text>
+    
+    <!-- 고객 연령대 분석 (개선) -->
+    <text x="20" y="225" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">👥 고객 분석 (신뢰도 89%)</text>
+    <g transform="translate(140, 255)">
+      <!-- 원형 차트 -->
+      <circle cx="0" cy="0" r="35" fill="#f8f9fa" stroke="#ddd"/>
+      <path d="M 0,-35 A 35,35 0 0,1 24.7,-24.7 L 0,0 Z" fill="#3498db"/>
+      <path d="M 24.7,-24.7 A 35,35 0 0,1 35,0 L 0,0 Z" fill="#e74c3c"/>
+      <path d="M 35,0 A 35,35 0 0,1 0,35 L 0,0 Z" fill="#f39c12"/>
+      <path d="M 0,35 A 35,35 0 0,1 -35,0 L 0,0 Z" fill="#27ae60"/>
+      <path d="M -35,0 A 35,35 0 0,1 0,-35 L 0,0 Z" fill="#9b59b6"/>
+      <text x="0" y="3" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#333">주요층</text>
+    </g>
+    
+    <!-- 범례 (개선) -->
+    <rect x="30" y="290" width="8" height="8" fill="#3498db"/>
+    <text x="42" y="298" font-family="Arial, sans-serif" font-size="8" fill="#333">20대 35%</text>
+    <rect x="90" y="290" width="8" height="8" fill="#e74c3c"/>
+    <text x="102" y="298" font-family="Arial, sans-serif" font-size="8" fill="#333">30대 28%</text>
+    <rect x="30" y="305" width="8" height="8" fill="#f39c12"/>
+    <text x="42" y="313" font-family="Arial, sans-serif" font-size="8" fill="#333">40대 20%</text>
+    <rect x="90" y="305" width="8" height="8" fill="#27ae60"/>
+    <text x="102" y="313" font-family="Arial, sans-serif" font-size="8" fill="#333">50대+ 17%</text>
+    
+    <!-- AI 피드백 (개선) -->
+    <text x="20" y="335" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">🤖 AI 피드백 (신뢰도 92%)</text>
+    <rect x="20" y="345" width="240" height="55" rx="8" fill="#e8f4fd" stroke="#3498db"/>
+    <text x="30" y="360" font-family="Arial, sans-serif" font-size="9" fill="#333">✅ 20-30대 고객 집중, 매운맛 메뉴 인기</text>
+    <text x="30" y="372" font-family="Arial, sans-serif" font-size="9" fill="#333">⚠️ 대기시간 불만 증가 (38% 언급)</text>
+    <text x="30" y="384" font-family="Arial, sans-serif" font-size="9" fill="#333">💡 주방 효율성 개선 권장</text>
+    <text x="230" y="395" text-anchor="end" font-family="Arial, sans-serif" font-size="8" fill="#3498db">상세보기 ></text>
+    
+    <!-- 빠른 액션 (신규) -->
+    <rect x="20" y="410" width="75" height="30" rx="5" fill="#3498db"/>
+    <text x="57" y="428" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white">📊 전체분석</text>
+    
+    <rect x="102" y="410" width="75" height="30" rx="5" fill="#27ae60"/>
+    <text x="140" y="428" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white">💬 리뷰관리</text>
+    
+    <rect x="185" y="410" width="75" height="30" rx="5" fill="#f39c12"/>
+    <text x="222" y="428" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="white">⚡ 실행계획</text>
+    
+    <!-- 하단 네비게이션 (점주용) -->
+    <rect x="0" y="450" width="280" height="50" fill="#ecf0f1" stroke="#bdc3c7"/>
+    <text x="46" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#2c3e50">📊</text>
+    <text x="46" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#2c3e50">분석</text>
+    <text x="93" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">🏪</text>
+    <text x="93" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#666">매장</text>
+    <text x="140" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">💬</text>
+    <text x="140" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#666">리뷰</text>
+    <text x="187" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">⚙️</text>
+    <text x="187" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#666">설정</text>
+    <text x="234" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">🔔</text>
+    <text x="234" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#666">알림</text>
+  </g>
+  
+  <!-- =============== 4. 리뷰 작성 화면 (대폭 개선) =============== -->
+  <g transform="translate(950, 60)">
+    <rect x="0" y="0" width="280" height="500" rx="20" fill="#ffffff" stroke="#e0e0e0" stroke-width="2"/>
+    
+    <!-- 헤더 -->
+    <rect x="0" y="0" width="280" height="50" rx="20" fill="#f39c12"/>
+    <circle cx="25" cy="25" r="8" fill="rgba(255,255,255,0.3)"/>
+    <text x="25" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">←</text>
+    <text x="140" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">리뷰 작성</text>
+    
+    <!-- 진행 단계 표시 (신규) -->
+    <rect x="20" y="65" width="240" height="25" rx="12" fill="#fff8e8" stroke="#f39c12"/>
+    <circle cx="40" cy="77" r="8" fill="#f39c12"/>
+    <text x="40" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">1</text>
+    <line x1="48" y1="77" x2="72" y2="77" stroke="#f39c12" stroke-width="2"/>
+    <circle cx="80" cy="77" r="8" fill="#ddd"/>
+    <text x="80" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#666">2</text>
+    <line x1="88" y1="77" x2="112" y2="77" stroke="#ddd" stroke-width="2"/>
+    <circle cx="120" cy="77" r="8" fill="#ddd"/>
+    <text x="120" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#666">3</text>
+    <text x="140" y="82" font-family="Arial, sans-serif" font-size="8" fill="#f39c12">영수증 인증</text>
+    
+    <!-- 매장 정보 -->
+    <rect x="20" y="100" width="240" height="40" rx="8" fill="#e8f4fd" stroke="#3498db"/>
+    <text x="30" y="115" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">맛있는 식당</text>
+    <text x="30" y="128" font-family="Arial, sans-serif" font-size="9" fill="#666">2024.06.11 16:30 방문 • 테이블 5번</text>
+    
+    <!-- 영수증 업로드 (대폭 강화) -->
+    <text x="20" y="160" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">📄 영수증 인증 (필수)</text>
+    <rect x="20" y="170" width="240" height="80" rx="8" fill="#f8f9fa" stroke="#ddd" stroke-dasharray="5,5"/>
+    
+    <!-- OCR 진행률 표시 (신규) -->
+    <rect x="30" y="185" width="220" height="15" rx="7" fill="#e8f5e8"/>
+    <rect x="30" y="185" width="154" height="15" rx="7" fill="#27ae60"/>
+    <text x="140" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">OCR 분석중... 70%</text>
+    
+    <text x="140" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">📷 영수증 사진 분석중</text>
+    <text x="140" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#27ae60">✅ 매장명 일치 확인됨</text>
+    <text x="140" y="242" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#27ae60">✅ 결제시간 인증됨</text>
+    
+    <!-- 별점 (개선) -->
+    <text x="20" y="270" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">⭐ 별점 평가</text>
+    <g transform="translate(20, 280)">
+      <text x="0" y="15" font-family="Arial, sans-serif" font-size="18" fill="#f39c12">⭐⭐⭐⭐⭐</text>
+      <text x="100" y="15" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#f39c12">5.0점</text>
+      <text x="140" y="15" font-family="Arial, sans-serif" font-size="9" fill="#666">탭해서 점수 조정</text>
+    </g>
+    
+    <!-- 리뷰 내용 (개선) -->
+    <text x="20" y="315" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">✍️ 리뷰 내용</text>
+    <rect x="20" y="325" width="240" height="70" rx="8" fill="#f8f9fa" stroke="#ddd"/>
+    <text x="30" y="340" font-family="Arial, sans-serif" font-size="9" fill="#999">솔직한 후기를 남겨주세요 (10-100자)</text>
+    <text x="30" y="355" font-family="Arial, sans-serif" font-size="9" fill="#333">정말 맛있었어요! 김치찌개가 얼큰하고</text>
+    <text x="30" y="368" font-family="Arial, sans-serif" font-size="9" fill="#333">사장님도 친절하셨습니다. 재방문 예정!</text>
+    <text x="230" y="385" text-anchor="end" font-family="Arial, sans-serif" font-size="8" fill="#27ae60">52/100 ✅</text>
+    
+    <!-- 자동 태그 제안 (신규) -->
+    <text x="20" y="410" font-family="Arial, sans-serif" font-size="9" fill="#666">🏷️ AI 추천 태그:</text>
+    <rect x="80" y="400" width="25" height="15" rx="7" fill="#e74c3c"/>
+    <text x="92" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">매운맛</text>
+    <rect x="110" y="400" width="30" height="15" rx="7" fill="#27ae60"/>
+    <text x="125" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">가성비</text>
+    <rect x="145" y="400" width="25" height="15" rx="7" fill="#3498db"/>
+    <text x="157" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">친절</text>
+    
+    <!-- 등록 버튼 (상태 표시) -->
+    <rect x="20" y="430" width="240" height="40" rx="5" fill="#27ae60"/>
+    <text x="140" y="453" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">✅ 리뷰 등록하기</text>
+    
+    <!-- 비속어 검사 상태 (신규) -->
+    <text x="20" y="485" font-family="Arial, sans-serif" font-size="8" fill="#27ae60">✅ 비속어 검사 완료 • 영수증 인증 완료</text>
+  </g>
+  
+  <!-- =============== 5. 리뷰 목록 화면 (반응 기능 강화) =============== -->
+  <g transform="translate(1250, 60)">
+    <rect x="0" y="0" width="280" height="500" rx="20" fill="#ffffff" stroke="#e0e0e0" stroke-width="2"/>
+    
+    <!-- 헤더 -->
+    <rect x="0" y="0" width="280" height="50" rx="20" fill="#f39c12"/>
+    <circle cx="25" cy="25" r="8" fill="rgba(255,255,255,0.3)"/>
+    <text x="25" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">←</text>
+    <text x="140" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">매장 리뷰</text>
+    
+    <!-- 필터 및 실시간 업데이트 -->
+    <rect x="20" y="65" width="240" height="25" rx="12" fill="#e8f5e8"/>
+    <circle cx="30" cy="77" r="3" fill="#27ae60"/>
+    <text x="40" y="82" font-family="Arial, sans-serif" font-size="8" fill="#27ae60">실시간 업데이트 • 3초 전 새 리뷰</text>
+    
+    <!-- 정렬 옵션 (개선) -->
+    <rect x="20" y="100" width="80" height="25" rx="12" fill="#f39c12"/>
+    <text x="60" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">최신순</text>
+    <rect x="110" y="100" width="70" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="145" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">반응순</text>
+    <rect x="190" y="100" width="70" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="225" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">평점순</text>
+    
+    <!-- 리뷰 카드 1 (반응 기능 강화) -->
+    <rect x="20" y="135" width="240" height="110" rx="8" fill="#fff" stroke="#f39c12" stroke-width="1"/>
+    <circle cx="40" cy="155" r="12" fill="#ddd"/>
+    <text x="40" y="161" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#666">👤</text>
+    <text x="60" y="150" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#333">김**님</text>
+    <rect x="60" y="155" width="25" height="12" rx="6" fill="#27ae60"/>
+    <text x="72" y="163" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="white">✅ 인증</text>
+    <text x="60" y="170" font-family="Arial, sans-serif" font-size="8" fill="#666">2024.06.10 • 하이오더</text>
+    
+    <text x="30" y="185" font-family="Arial, sans-serif" font-size="9" fill="#f39c12">⭐⭐⭐⭐⭐ 5.0</text>
+    <text x="30" y="198" font-family="Arial, sans-serif" font-size="9" fill="#333">정말 맛있었어요! 김치찌개가 얼큰하고</text>
+    <text x="30" y="210" font-family="Arial, sans-serif" font-size="9" fill="#333">사장님도 친절하셨습니다.</text>
+    
+    <!-- 반응 버튼들 (10초 제한 표시) -->
+    <rect x="30" y="220" width="35" height="18" rx="9" fill="#fff2e8" stroke="#f39c12"/>
+    <text x="47" y="231" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#f39c12">👍 12</text>
+    <rect x="70" y="220" width="35" height="18" rx="9" fill="#f0f8ff" stroke="#3498db"/>
+    <text x="87" y="231" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#3498db">❤️ 5</text>
+    <rect x="110" y="220" width="40" height="18" rx="9" fill="#e8e8e8" stroke="#bbb"/>
+    <text x="130" y="231" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#999">🔄 7초</text>
+    
+    <!-- 반응 제한 안내 (신규) -->
+    <text x="160" y="231" font-family="Arial, sans-serif" font-size="6" fill="#999">방문 인증된 고객만 반응 가능</text>
+    
+    <!-- 사장님 댓글 -->
+    <rect x="40" y="245" width="210" height="25" rx="5" fill="#e8f4fd" stroke="#3498db"/>
+    <text x="50" y="255" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#2c3e50">🏪 맛있는식당 사장님</text>
+    <text x="50" y="265" font-family="Arial, sans-serif" font-size="7" fill="#333">감사합니다! 더 맛있는 음식으로 보답하겠습니다 💪</text>
+    
+    <!-- 리뷰 카드 2 (간소화) -->
+    <rect x="20" y="280" width="240" height="85" rx="8" fill="#f8f9fa" stroke="#ddd"/>
+    <circle cx="40" cy="295" r="12" fill="#ddd"/>
+    <text x="40" y="301" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#666">👤</text>
+    <text x="60" y="290" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#333">박**님</text>
+    <text x="60" y="305" font-family="Arial, sans-serif" font-size="8" fill="#666">2024.06.09 • 네이버</text>
+    
+    <text x="30" y="320" font-family="Arial, sans-serif" font-size="9" fill="#f39c12">⭐⭐⭐⭐☆ 4.0</text>
+    <text x="30" y="333" font-family="Arial, sans-serif" font-size="9" fill="#333">불고기정식 맛있어요. 다만 대기가 좀...</text>
+    
+    <!-- 반응 버튼 -->
+    <rect x="30" y="345" width="30" height="15" rx="7" fill="#fff2e8" stroke="#f39c12"/>
+    <text x="45" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="#f39c12">👍 8</text>
+    
+    <!-- 하단 더보기 -->
+    <rect x="80" y="375" width="120" height="25" rx="12" fill="#f39c12"/>
+    <text x="140" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">더 많은 리뷰 보기</text>
+    
+    <!-- 플로팅 리뷰 작성 버튼 -->
+    <circle cx="230" cy="420" r="20" fill="#27ae60"/>
+    <text x="230" y="427" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="white">✏️</text>
+  </g>
+  
+  <!-- =============== 6. AI 피드백 상세 화면 (신뢰성 강화) =============== -->
+  <g transform="translate(50, 600)">
+    <rect x="0" y="0" width="280" height="500" rx="20" fill="#ffffff" stroke="#e0e0e0" stroke-width="2"/>
+    
+    <!-- 헤더 -->
+    <rect x="0" y="0" width="280" height="50" rx="20" fill="#2c3e50"/>
+    <circle cx="25" cy="25" r="8" fill="rgba(255,255,255,0.3)"/>
+    <text x="25" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">←</text>
+    <text x="140" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">AI 분석 리포트</text>
+    
+    <!-- 신뢰도 및 근거 표시 (신규) -->
+    <rect x="20" y="65" width="240" height="35" rx="8" fill="#e8f4fd" stroke="#3498db"/>
+    <text x="30" y="80" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#333">🤖 AI 분석 신뢰도: 92%</text>
+    <text x="30" y="92" font-family="Arial, sans-serif" font-size="8" fill="#666">분석 근거: 리뷰 47개 • 주문 데이터 156건 • 외부 리뷰 23개</text>
+    
+    <!-- 분석 기간 -->
+    <rect x="20" y="110" width="240" height="25" rx="5" fill="#f8f9fa"/>
+    <text x="30" y="125" font-family="Arial, sans-serif" font-size="9" fill="#666">📅 분석 기간: 2024.05.01 - 2024.05.31 (31일간)</text>
+    
+    <!-- 감정 분석 (개선) -->
+    <text x="20" y="155" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">😊 고객 만족도 분석</text>
+    <rect x="20" y="165" width="240" height="60" rx="8" fill="#f8fdf8" stroke="#27ae60"/>
+    
+    <!-- 만족도 바 차트 -->
+    <text x="30" y="180" font-family="Arial, sans-serif" font-size="9" fill="#333">긍정적 반응</text>
+    <rect x="30" y="185" width="150" height="8" rx="4" fill="#e8f5e8"/>
+    <rect x="30" y="185" width="112" height="8" rx="4" fill="#27ae60"/>
+    <text x="185" y="192" font-family="Arial, sans-serif" font-size="8" fill="#27ae60">75%</text>
+    
+    <text x="30" y="205" font-family="Arial, sans-serif" font-size="9" fill="#333">중립적 반응</text>
+    <rect x="30" y="210" width="150" height="8" rx="4" fill="#ffeaa7"/>
+    <rect x="30" y="210" width="28" height="8" rx="4" fill="#f39c12"/>
+    <text x="185" y="217" font-family="Arial, sans-serif" font-size="8" fill="#f39c12">19%</text>
+    
+    <!-- 주요 키워드 (신규) -->
+    <text x="20" y="245" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">🔑 핵심 키워드</text>
+    <rect x="20" y="255" width="240" height="50" rx="8" fill="#f8f9fa" stroke="#ddd"/>
+    <rect x="30" y="265" width="30" height="15" rx="7" fill="#27ae60"/>
+    <text x="45" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">맛있어요</text>
+    <rect x="65" y="265" width="25" height="15" rx="7" fill="#3498db"/>
+    <text x="77" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">친절</text>
+    <rect x="95" y="265" width="30" height="15" rx="7" fill="#f39c12"/>
+    <text x="110" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">가성비</text>
+    <rect x="130" y="265" width="35" height="15" rx="7" fill="#e74c3c"/>
+    <text x="147" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">대기시간</text>
+    
+    <text x="30" y="295" font-family="Arial, sans-serif" font-size="8" fill="#333">가장 많이 언급: "맛있어요"(23회), "친절"(18회)</text>
+    
+    <!-- AI 추천사항 (개선) -->
+    <text x="20" y="325" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">💡 AI 개선 제안</text>
+    <rect x="20" y="335" width="240" height="70" rx="8" fill="#fff8e8" stroke="#f39c12"/>
+    <text x="30" y="350" font-family="Arial, sans-serif" font-size="9" fill="#333">🎯 우선 개선: 주문-서빙 시간 단축</text>
+    <text x="30" y="365" font-family="Arial, sans-serif" font-size="9" fill="#333">📈 예상 효과: 만족도 +15%, 재방문율 +23%</text>
+    <text x="30" y="380" font-family="Arial, sans-serif" font-size="9" fill="#333">⏱️ 구현 기간: 1-2주 (주방 효율화)</text>
+    <text x="30" y="395" font-family="Arial, sans-serif" font-size="9" fill="#333">💰 예상 비용: 50-100만원 (장비 개선)</text>
+    
+    <!-- 피드백 신뢰도 확인 (신규) -->
+    <rect x="20" y="415" width="240" height="35" rx="8" fill="#f0f8ff" stroke="#3498db"/>
+    <text x="30" y="430" font-family="Arial, sans-serif" font-size="9" fill="#333">이 분석이 도움이 되었나요?</text>
+    <rect x="30" y="435" width="25" height="15" rx="7" fill="#27ae60"/>
+    <text x="42" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">👍</text>
+    <rect x="60" y="435" width="25" height="15" rx="7" fill="#e74c3c"/>
+    <text x="72" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">👎</text>
+    <text x="95" y="445" font-family="Arial, sans-serif" font-size="8" fill="#666">피드백으로 AI가 학습해요</text>
+    
+    <!-- 액션 버튼 -->
+    <rect x="20" y="460" width="115" height="30" rx="5" fill="#3498db"/>
+    <text x="77" y="478" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">📋 실행계획 수립</text>
+    
+    <rect x="145" y="460" width="115" height="30" rx="5" fill="#27ae60"/>
+    <text x="202" y="478" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">📊 상세 데이터</text>
+  </g>
+  
+  <!-- =============== 7. 취향 설정 화면 (개선) =============== -->
+  <g transform="translate(350, 600)">
+    <rect x="0" y="0" width="280" height="500" rx="20" fill="#ffffff" stroke="#e0e0e0" stroke-width="2"/>
+    
+    <!-- 헤더 -->
+    <rect x="0" y="0" width="280" height="50" rx="20" fill="#f39c12"/>
+    <circle cx="25" cy="25" r="8" fill="rgba(255,255,255,0.3)"/>
+    <text x="25" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">←</text>
+    <text x="140" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">취향 설정</text>
+    
+    <!-- 진행률 표시 (신규) -->
+    <rect x="20" y="65" width="240" height="25" rx="12" fill="#fff8e8" stroke="#f39c12"/>
+    <rect x="30" y="72" width="150" height="10" rx="5" fill="#ffeaa7"/>
+    <rect x="30" y="72" width="90" height="10" rx="5" fill="#f39c12"/>
+    <text x="140" y="81" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#f39c12">60% 완료 (3/5단계)</text>
+    
+    <!-- 설명 -->
+    <text x="20" y="110" font-family="Arial, sans-serif" font-size="11" fill="#666">🎯 맞춤 추천을 위해 취향을 알려주세요</text>
+    <text x="20" y="125" font-family="Arial, sans-serif" font-size="9" fill="#999">선택하신 정보는 AI 추천에만 사용됩니다</text>
+    
+    <!-- 맛 선호도 (개선) -->
+    <text x="20" y="150" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">🌶️ 맛 선호도</text>
+    <rect x="20" y="160" width="40" height="25" rx="12" fill="#e74c3c"/>
+    <text x="40" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">매운맛</text>
+    <rect x="65" y="160" width="35" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="82" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">단맛</text>
+    <rect x="105" y="160" width="35" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="122" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">짠맛</text>
+    <rect x="145" y="160" width="35" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="162" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">담백</text>
+    <rect x="185" y="160" width="35" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="202" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">신맛</text>
+    
+    <!-- 건강 정보 -->
+    <text x="20" y="205" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">💪 건강 정보</text>
+    <rect x="20" y="215" width="35" height="25" rx="12" fill="#27ae60"/>
+    <text x="37" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">다이어트</text>
+    <rect x="60" y="215" width="30" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="75" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">저당</text>
+    <rect x="95" y="215" width="35" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="112" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">저염식</text>
+    <rect x="135" y="215" width="35" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="152" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">고단백</text>
+    <rect x="175" y="215" width="35" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="192" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">비건</text>
+    
+    <!-- 알레르기 정보 -->
+    <text x="20" y="260" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">⚠️ 알레르기 정보</text>
+    <rect x="20" y="270" width="35" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="37" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">유제품</text>
+    <rect x="60" y="270" width="30" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="75" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">견과류</text>
+    <rect x="95" y="270" width="35" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="112" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">해산물</text>
+    <rect x="135" y="270" width="25" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="147" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">달걀</text>
+    
+    <!-- 분위기 선호 -->
+    <text x="20" y="315" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">🏪 선호 분위기</text>
+    <rect x="20" y="325" width="25" height="25" rx="12" fill="#f39c12"/>
+    <text x="32" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">혼밥</text>
+    <rect x="50" y="325" width="30" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="65" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">모임</text>
+    <rect x="85" y="325" width="30" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="100" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">데이트</text>
+    <rect x="120" y="325" width="30" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="135" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">가족</text>
+    <rect x="155" y="325" width="30" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="170" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">조용한</text>
+    
+    <!-- 음식 종류 -->
+    <text x="20" y="370" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">🍽️ 선호 음식</text>
+    <rect x="20" y="380" width="25" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="32" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">한식</text>
+    <rect x="50" y="380" width="25" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="62" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">중식</text>
+    <rect x="80" y="380" width="25" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="92" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">일식</text>
+    <rect x="110" y="380" width="25" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="122" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">양식</text>
+    <rect x="140" y="380" width="25" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="152" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">분식</text>
+    <rect x="170" y="380" width="25" height="25" rx="12" fill="white" stroke="#ddd"/>
+    <text x="182" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">카페</text>
+    
+    <!-- AI 예측 결과 (신규) -->
+    <rect x="20" y="415" width="240" height="35" rx="8" fill="#e8f4fd" stroke="#3498db"/>
+    <text x="30" y="430" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#333">🎯 AI 예측: 당신과 92% 유사한 고객들이 좋아하는 음식점</text>
+    <text x="30" y="442" font-family="Arial, sans-serif" font-size="8" fill="#666">매운 한식, 혼밥 가능한 곳을 주로 선호합니다</text>
+    
+    <!-- 저장 버튼 -->
+    <rect x="20" y="460" width="240" height="35" rx="5" fill="#f39c12"/>
+    <text x="140" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">✅ 저장하고 추천받기</text>
+  </g>
+  
+  <!-- =============== 8. 외부 플랫폼 연동 화면 (신규) =============== -->
+  <g transform="translate(650, 600)">
+    <rect x="0" y="0" width="280" height="500" rx="20" fill="#ffffff" stroke="#e0e0e0" stroke-width="2"/>
+    
+    <!-- 헤더 -->
+    <rect x="0" y="0" width="280" height="50" rx="20" fill="#2c3e50"/>
+    <circle cx="25" cy="25" r="8" fill="rgba(255,255,255,0.3)"/>
+    <text x="25" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">←</text>
+    <text x="140" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">외부 플랫폼 연동</text>
+    
+    <!-- 연동 상태 요약 -->
+    <rect x="20" y="65" width="240" height="35" rx="8" fill="#f8fdf8" stroke="#27ae60"/>
+    <text x="30" y="80" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#333">📊 연동 현황: 2/3 완료</text>
+    <text x="30" y="92" font-family="Arial, sans-serif" font-size="8" fill="#666">통합 리뷰 분석으로 더 정확한 AI 피드백을 받을 수 있어요</text>
+    
+    <!-- 네이버 연동 카드 -->
+    <rect x="20" y="110" width="240" height="70" rx="8" fill="#e8f5e8" stroke="#27ae60" stroke-width="2"/>
+    <circle cx="50" cy="130" r="20" fill="#03c75a"/>
+    <text x="50" y="137" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">N</text>
+    <text x="80" y="125" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">네이버 플레이스</text>
+    <text x="80" y="140" font-family="Arial, sans-serif" font-size="9" fill="#27ae60">✅ 연동 완료</text>
+    <text x="80" y="152" font-family="Arial, sans-serif" font-size="8" fill="#666">최근 동기화: 10분 전</text>
+    <text x="80" y="164" font-family="Arial, sans-serif" font-size="8" fill="#666">수집된 리뷰: 23개</text>
+    <rect x="210" y="140" width="40" height="20" rx="10" fill="#27ae60"/>
+    <text x="230" y="153" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">설정</text>
+    
+    <!-- 카카오 연동 카드 -->
+    <rect x="20" y="190" width="240" height="70" rx="8" fill="#fff8e8" stroke="#f39c12" stroke-width="2"/>
+    <circle cx="50" cy="210" r="20" fill="#fee500"/>
+    <text x="50" y="217" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333">K</text>
+    <text x="80" y="205" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">카카오맵</text>
+    <text x="80" y="220" font-family="Arial, sans-serif" font-size="9" fill="#f39c12">🔄 동기화 중...</text>
+    
+    <!-- 진행률 바 -->
+    <rect x="80" y="225" width="120" height="8" rx="4" fill="#ffeaa7"/>
+    <rect x="80" y="225" width="84" height="8" rx="4" fill="#f39c12"/>
+    <text x="80" y="242" font-family="Arial, sans-serif" font-size="8" fill="#666">70% 완료 (14/20개 리뷰)</text>
+    <text x="80" y="252" font-family="Arial, sans-serif" font-size="8" fill="#666">예상 완료: 3분 후</text>
+    
+    <!-- 구글 연동 카드 -->
+    <rect x="20" y="270" width="240" height="70" rx="8" fill="#f8f9fa" stroke="#ddd" stroke-dasharray="5,5"/>
+    <circle cx="50" cy="290" r="20" fill="#4285f4"/>
+    <text x="50" y="297" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">G</text>
+    <text x="80" y="285" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">구글 비즈니스</text>
+    <text x="80" y="300" font-family="Arial, sans-serif" font-size="9" fill="#666">⏳ 연동 대기중</text>
+    <text x="80" y="312" font-family="Arial, sans-serif" font-size="8" fill="#666">구글 계정 인증이 필요해요</text>
+    <text x="80" y="324" font-family="Arial, sans-serif" font-size="8" fill="#666">예상 수집 리뷰: 15-20개</text>
+    <rect x="210" y="300" width="40" height="20" rx="10" fill="#4285f4"/>
+    <text x="230" y="313" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">연동</text>
+    
+    <!-- 연동 혜택 안내 -->
+    <rect x="20" y="350" width="240" height="60" rx="8" fill="#e8f4fd" stroke="#3498db"/>
+    <text x="30" y="365" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#333">🎯 연동 혜택</text>
+    <text x="30" y="378" font-family="Arial, sans-serif" font-size="8" fill="#333">✅ 통합 리뷰 분석으로 AI 정확도 +35% 향상</text>
+    <text x="30" y="390" font-family="Arial, sans-serif" font-size="8" fill="#333">✅ 플랫폼별 고객 특성 분석 가능</text>
+    <text x="30" y="402" font-family="Arial, sans-serif" font-size="8" fill="#333">✅ 경쟁업체 대비 성과 분석 제공</text>
+    
+    <!-- 보안 안내 -->
+    <rect x="20" y="420" width="240" height="35" rx="8" fill="#fff2e8" stroke="#f39c12"/>
+    <text x="30" y="435" font-family="Arial, sans-serif" font-size="9" fill="#333">🔒 보안: 리뷰 데이터만 수집, 개인정보 접근 없음</text>
+    <text x="30" y="447" font-family="Arial, sans-serif" font-size="8" fill="#666">연동 해제는 언제든 가능합니다</text>
+    
+    <!-- 전체 연동 버튼 -->
+    <rect x="20" y="465" width="240" height="30" rx="5" fill="#3498db"/>
+    <text x="140" y="483" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">🔗 구글 비즈니스 연동하기</text>
+  </g>
+  
+  <!-- =============== 9. 에러 처리 화면들 (신규) =============== -->
+  <g transform="translate(950, 600)">
+    <rect x="0" y="0" width="280" height="500" rx="20" fill="#ffffff" stroke="#e0e0e0" stroke-width="2"/>
+    
+    <!-- 헤더 -->
+    <rect x="0" y="0" width="280" height="50" rx="20" fill="#e74c3c"/>
+    <circle cx="25" cy="25" r="8" fill="rgba(255,255,255,0.3)"/>
+    <text x="25" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">←</text>
+    <text x="140" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">연결 오류</text>
+    
+    <!-- 네트워크 오류 화면 -->
+    <rect x="50" y="100" width="180" height="120" rx="10" fill="#fff2f2" stroke="#e74c3c"/>
+    <text x="140" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" fill="#e74c3c">📶</text>
+    <text x="140" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">네트워크 연결 오류</text>
+    <text x="140" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">인터넷 연결을 확인해주세요</text>
+    <text x="140" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#999">오류 코드: NET_001</text>
+    
+    <!-- 재시도 버튼 -->
+    <rect x="80" y="240" width="120" height="35" rx="5" fill="#e74c3c"/>
+    <text x="140" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">🔄 다시 시도</text>
+    
+    <!-- 데이터 없음 화면 -->
+    <rect x="50" y="290" width="180" height="100" rx="10" fill="#f8f9fa" stroke="#ddd"/>
+    <text x="140" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#bbb">📝</text>
+    <text x="140" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">리뷰가 없어요</text>
+    <text x="140" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">첫 번째 리뷰를 작성해보세요!</text>
+    
+    <!-- 리뷰 작성 버튼 -->
+    <rect x="100" y="370" width="80" height="25" rx="12" fill="#27ae60"/>
+    <text x="140" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">✏️ 리뷰 쓰기</text>
+    
+    <!-- 권한 없음 안내 -->
+    <rect x="20" y="410" width="240" height="50" rx="8" fill="#fff8e8" stroke="#f39c12"/>
+    <text x="30" y="425" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#333">🔒 접근 권한이 필요해요</text>
+    <text x="30" y="440" font-family="Arial, sans-serif" font-size="8" fill="#666">이 기능은 구독 회원만 이용할 수 있습니다</text>
+    <text x="30" y="452" font-family="Arial, sans-serif" font-size="8" fill="#f39c12">구독 플랜을 확인해보세요 ></text>
+    
+    <!-- 로딩 상태 (신규) -->
+    <rect x="20" y="470" width="240" height="25" rx="12" fill="#e8f4fd" stroke="#3498db"/>
+    <circle cx="40" cy="482" r="5" fill="#3498db"/>
+    <text x="55" y="487" font-family="Arial, sans-serif" font-size="9" fill="#3498db">AI 분석 중... 잠시만 기다려주세요</text>
+    <!-- 로딩 스피너 애니메이션을 위한 점들 -->
+    <circle cx="210" cy="482" r="2" fill="#3498db"/>
+    <circle cx="220" cy="482" r="2" fill="#74b9ff"/>
+    <circle cx="230" cy="482" r="2" fill="#ddd"/>
+  </g>
+  
+  <!-- =============== 10. 매장 관리 화면 (개선) =============== -->
+  <g transform="translate(1250, 600)">
+    <rect x="0" y="0" width="280" height="500" rx="20" fill="#ffffff" stroke="#e0e0e0" stroke-width="2"/>
+    
+    <!-- 헤더 -->
+    <rect x="0" y="0" width="280" height="50" rx="20" fill="#2c3e50"/>
+    <circle cx="25" cy="25" r="8" fill="rgba(255,255,255,0.3)"/>
+    <text x="25" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">←</text>
+    <text x="140" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">매장 관리</text>
+    <circle cx="255" cy="25" r="12" fill="rgba(255,255,255,0.2)"/>
+    <text x="255" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">+</text>
+    
+    <!-- 매장 현황 요약 (신규) -->
+    <rect x="20" y="65" width="240" height="40" rx="8" fill="#e8f4fd" stroke="#3498db"/>
+    <text x="30" y="80" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">📊 매장 현황</text>
+    <text x="30" y="92" font-family="Arial, sans-serif" font-size="8" fill="#666">운영중 1개 • 휴무 1개 • 전체 평점 4.2</text>
+    
+    <!-- 주요 매장 카드 (개선) -->
+    <rect x="20" y="115" width="240" height="85" rx="10" fill="#f0f8ff" stroke="#3498db" stroke-width="2"/>
+    <rect x="30" y="125" width="50" height="40" rx="5" fill="#ddd"/>
+    <text x="55" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#666">매장</text>
+    
+    <!-- 실시간 상태 표시 -->
+    <circle cx="75" cy="130" r="5" fill="#27ae60"/>
+    <text x="85" y="135" font-family="Arial, sans-serif" font-size="8" fill="#27ae60">● LIVE</text>
+    
+    <text x="90" y="135" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">맛있는 식당</text>
+    <text x="90" y="148" font-family="Arial, sans-serif" font-size="9" fill="#666">서울 강남구 • 한식</text>
+    <text x="90" y="160" font-family="Arial, sans-serif" font-size="9" fill="#e74c3c">⭐ 4.3 • 신규 리뷰 2건</text>
+    
+    <!-- 실시간 알림 표시 -->
+    <rect x="200" y="125" width="50" height="15" rx="7" fill="#ff6b6b"/>
+    <text x="225" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">새 댓글 1</text>
+    
+    <!-- 빠른 액션 버튼들 -->
+    <rect x="90" y="170" width="35" height="20" rx="3" fill="#3498db"/>
+    <text x="107" y="182" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">📊 분석</text>
+    <rect x="130" y="170" width="35" height="20" rx="3" fill="#f39c12"/>
+    <text x="147" y="182" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">💬 리뷰</text>
+    <rect x="170" y="170" width="35" height="20" rx="3" fill="#27ae60"/>
+    <text x="187" y="182" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">⚙️ 설정</text>
+    
+    <!-- 외부 연동 상태 (개선) -->
+    <text x="20" y="225" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">🔗 플랫폼 연동 현황</text>
+    <rect x="20" y="235" width="240" height="70" rx="8" fill="#f8f9fa" stroke="#ddd"/>
+    
+    <!-- 플랫폼 상태 표시 -->
+    <circle cx="40" cy="250" r="12" fill="#03c75a"/>
+    <text x="40" y="256" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">N</text>
+    <text x="60" y="255" font-family="Arial, sans-serif" font-size="9" fill="#333">네이버</text>
+    <circle cx="100" cy="248" r="3" fill="#27ae60"/>
+    <text x="108" y="252" font-family="Arial, sans-serif" font-size="7" fill="#27ae60">연동됨</text>
+    
+    <circle cx="40" cy="275" r="12" fill="#fee500"/>
+    <text x="40" y="281" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#333">K</text>
+    <text x="60" y="280" font-family="Arial, sans-serif" font-size="9" fill="#333">카카오</text>
+    <circle cx="100" cy="273" r="3" fill="#f39c12"/>
+    <text x="108" y="277" font-family="Arial, sans-serif" font-size="7" fill="#f39c12">동기화중</text>
+    
+    <circle cx="150" cy="250" r="12" fill="#4285f4"/>
+    <text x="150" y="256" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">G</text>
+    <text x="170" y="255" font-family="Arial, sans-serif" font-size="9" fill="#333">구글</text>
+    <circle cx="210" cy="248" r="3" fill="#e74c3c"/>
+    <text x="218" y="252" font-family="Arial, sans-serif" font-size="7" fill="#e74c3c">대기중</text>
+    
+    <!-- 수집 통계 -->
+    <text x="30" y="295" font-family="Arial, sans-serif" font-size="8" fill="#666">오늘 수집: 네이버 3건, 카카오 1건</text>
+    
+    <!-- 알림 및 할일 (신규) -->
+    <text x="20" y="325" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">🔔 오늘의 할일</text>
+    <rect x="20" y="335" width="240" height="80" rx="8" fill="#fff8e8" stroke="#f39c12"/>
+    
+    <!-- 우선순위 할일 목록 -->
+    <rect x="30" y="345" width="220" height="20" rx="3" fill="#ffeaa7"/>
+    <circle cx="40" cy="355" r="3" fill="#e74c3c"/>
+    <text x="50" y="359" font-family="Arial, sans-serif" font-size="8" fill="#333">신규 리뷰 2건에 댓글 작성 필요</text>
+    <text x="230" y="359" text-anchor="end" font-family="Arial, sans-serif" font-size="7" fill="#e74c3c">긴급</text>
+    
+    <rect x="30" y="370" width="220" height="20" rx="3" fill="white" stroke="#f39c12"/>
+    <circle cx="40" cy="380" r="3" fill="#f39c12"/>
+    <text x="50" y="384" font-family="Arial, sans-serif" font-size="8" fill="#333">구글 플랫폼 연동 설정</text>
+    <text x="230" y="384" text-anchor="end" font-family="Arial, sans-serif" font-size="7" fill="#f39c12">오늘</text>
+    
+    <rect x="30" y="395" width="220" height="15" rx="3" fill="white" stroke="#ddd"/>
+    <circle cx="40" cy="402" r="3" fill="#27ae60"/>
+    <text x="50" y="406" font-family="Arial, sans-serif" font-size="8" fill="#333">월간 분석 리포트 확인</text>
+    
+    <!-- 빠른 액션 영역 -->
+    <rect x="20" y="425" width="75" height="30" rx="5" fill="#3498db"/>
+    <text x="57" y="443" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">📊 통합분석</text>
+    
+    <rect x="102" y="425" width="75" height="30" rx="5" fill="#27ae60"/>
+    <text x="140" y="443" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">💬 댓글관리</text>
+    
+    <rect x="185" y="425" width="75" height="30" rx="5" fill="#f39c12"/>
+    <text x="222" y="443" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">🔗 연동설정</text>
+    
+    <!-- 성과 요약 (신규) -->
+    <rect x="20" y="465" width="240" height="30" rx="8" fill="#e8f5e8" stroke="#27ae60"/>
+    <text x="30" y="478" font-family="Arial, sans-serif" font-size="9" fill="#333">📈 이번 주: 평점 +0.2, 리뷰 +15%, 댓글 응답률 100%</text>
+    <text x="30" y="488" font-family="Arial, sans-serif" font-size="8" fill="#27ae60">AI 권장사항 3개 중 2개 실행 완료 ✅</text>
+  </g>
+  
+  <!-- =============== 추가 설명 =============== -->
+  <text x="50" y="1150" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">주요 개선사항 요약</text>
+  
+  <text x="50" y="1180" font-family="Arial, sans-serif" font-size="11" fill="#333">✅ 역할별 색상 구분 (고객: 따뜻한 오렌지, 점주: 전문적인 블루/그레이)</text>
+  <text x="50" y="1200" font-family="Arial, sans-serif" font-size="11" fill="#333">✅ 영수증 OCR 진행률 및 실시간 인증 상태 표시</text>
+  <text x="50" y="1220" font-family="Arial, sans-serif" font-size="11" fill="#333">✅ 리뷰 반응 10초 제한 타이머 및 이용 이력 확인 표시</text>
+  <text x="50" y="1240" font-family="Arial, sans-serif" font-size="11" fill="#333">✅ AI 신뢰도 점수 (92%) 및 분석 근거 데이터 명시</text>
+  <text x="50" y="1260" font-family="Arial, sans-serif" font-size="11" fill="#333">✅ 실시간 상태 표시 (로딩, 에러, 업데이트)</text>
+  <text x="50" y="1280" font-family="Arial, sans-serif" font-size="11" fill="#333">✅ 외부 플랫폼 연동 진행 상황 시각화</text>
+  <text x="50" y="1300" font-family="Arial, sans-serif" font-size="11" fill="#333">✅ 에러 처리 화면 (네트워크, 권한, 데이터 없음)</text>
+  <text x="50" y="1320" font-family="Arial, sans-serif" font-size="11" fill="#333">✅ 접근성 개선 (터치 영역 44px, 명확한 피드백)</text>
+  <text x="50" y="1340" font-family="Arial, sans-serif" font-size="11" fill="#333">✅ 정보 계층화 및 우선순위 표시</text>
+  <text x="50" y="1360" font-family="Arial, sans-serif" font-size="11" fill="#333">✅ 실시간 알림 및 할일 관리 기능</text>
+</svg>
