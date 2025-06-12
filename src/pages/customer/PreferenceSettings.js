@@ -8,6 +8,7 @@ import {
 } from '@mui/material';
 import Header from '../../components/common/Header';
 import { memberService } from '../../services/member';
+import { CustomerNavigation } from '../../components/common/Navigation';
 
 const PreferenceSettings = () => {
   const [selectedTags, setSelectedTags] = useState([]);
@@ -116,7 +117,7 @@ const PreferenceSettings = () => {
           선택된 태그: {selectedTags.length}개
         </Typography>
       </Box>
-    </Box>
+    <CustomerNavigation /> </Box>
   );
 };
 

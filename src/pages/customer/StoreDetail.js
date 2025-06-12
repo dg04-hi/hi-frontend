@@ -14,6 +14,7 @@ import { LocationOn, Phone, AccessTime, Star } from '@mui/icons-material';
 import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../../components/common/Header';
 import { formatNumber, formatDateTime } from '../../utils/helpers';
+import { CustomerNavigation } from '../../components/common/Navigation';
 
 const StoreDetail = () => {
   const { storeId } = useParams();
@@ -185,7 +186,7 @@ const StoreDetail = () => {
           </Card>
         ))}
       </Box>
-    </Box>
+    <CustomerNavigation /> </Box>
   );
 };
 

@@ -14,6 +14,7 @@ import { PhotoCamera, Delete } from '@mui/icons-material';
 import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../../components/common/Header';
 import { validateReviewContent } from '../../utils/validation';
+import { CustomerNavigation } from '../../components/common/Navigation';
 
 const ReviewWrite = () => {
   const { storeId } = useParams();
@@ -239,7 +240,7 @@ const ReviewWrite = () => {
           </>
         )}
       </Box>
-    </Box>
+    <CustomerNavigation /> </Box>
   );
 };
 

@@ -15,6 +15,7 @@ import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Toolti
 import { useParams } from 'react-router-dom';
 import Header from '../../components/common/Header';
 import { formatNumber } from '../../utils/helpers';
+import { OwnerNavigation } from '../../components/common/Navigation';
 
 const AnalyticsDetail = () => {
   const { storeId } = useParams();
@@ -277,7 +278,7 @@ const AnalyticsDetail = () => {
           ✅ 선택한 실행 계획 저장
         </Button>
       </Box>
-    </Box>
+    <OwnerNavigation /> </Box>
   );
 };
 

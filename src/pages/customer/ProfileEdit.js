@@ -11,6 +11,7 @@ import {
 import Header from '../../components/common/Header';
 import { memberService } from '../../services/member';
 import { validateUsername, validatePassword, validateNickname } from '../../utils/validation';
+import { CustomerNavigation } from '../../components/common/Navigation';
 
 const ProfileEdit = () => {
   const [tabValue, setTabValue] = useState(0);
@@ -229,7 +230,7 @@ const ProfileEdit = () => {
           </Alert>
         )}
       </Box>
-    </Box>
+    <CustomerNavigation /> </Box>
   );
 };
 

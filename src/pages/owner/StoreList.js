@@ -12,6 +12,7 @@ import { useParams } from 'react-router-dom';
 import Header from '../../components/common/Header';
 import { OwnerNavigation } from '../../components/common/Navigation';
 
+
 const StoreInfo = () => {
   const { storeId } = useParams();
   const [storeInfo, setStoreInfo] = useState({

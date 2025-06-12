@@ -13,6 +13,7 @@ import {
 import { CheckCircle, RadioButtonUnchecked } from '@mui/icons-material';
 import { useParams } from 'react-router-dom';
 import Header from '../../components/common/Header';
+import { OwnerNavigation } from '../../components/common/Navigation';
 
 const ActionPlan = () => {
   const { storeId } = useParams();
@@ -261,7 +262,7 @@ const ActionPlan = () => {
           </Alert>
         )}
       </Box>
-    </Box>
+   <OwnerNavigation /> </Box>
   );
 };
 

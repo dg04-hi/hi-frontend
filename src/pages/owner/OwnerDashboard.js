@@ -7,22 +7,35 @@ import {
   Button
 } from '@mui/material';
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { OwnerNavigation } from '../../components/common/Navigation';
+import { OwnerNavigation, useSelectedStore } from '../../components/common/Navigation';
 import { formatNumber } from '../../utils/helpers';
 
 const OwnerDashboard = () => {
-  const [selectedStore, setSelectedStore] = useState('분식천국');
+  const { selectedStoreId } = useSelectedStore();
   const [orderStats, setOrderStats] = useState([]);
   const [genderAgeStats, setGenderAgeStats] = useState([]);
   const [timeStats, setTimeStats] = useState([]);
   const [aiInsights, setAiInsights] = useState([]);
 
-  const mockOrderStats = [
-    { name: '떡볶이', value: 45 },
-    { name: '김밥', value: 30 },
-    { name: '순대', value: 15 },
-    { name: '튀김', value: 10 }
-  ];
+  const storeNames = {
+    1: '분식천국',
+    2: '맛있는 한식당'
+  };
+
+  const mockOrderStats = {
+    1: [
+      { name: '떡볶이', value: 45 },
+      { name: '김밥', value: 30 },
+      { name: '순대', value: 15 },
+      { name: '튀김', value: 10 }
+    ],
+    2: [
+      { name: '불고기정식', value: 40 },
+      { name: '된장찌개', value: 25 },
+      { name: '김치찌개', value: 20 },
+      { name: '비빔밥', value: 15 }
+    ]
+  };
 
   const mockGenderAgeStats = [
     { name: '남성 20대', value: 23, fill: '#3498db' },
@@ -62,11 +75,11 @@ const OwnerDashboard = () => {
   ];
 
   useEffect(() => {
-    setOrderStats(mockOrderStats);
+    setOrderStats(mockOrderStats[selectedStoreId] || mockOrderStats[1]);
     setGenderAgeStats(mockGenderAgeStats);
     setTimeStats(mockTimeStats);
     setAiInsights(mockAiInsights);
-  }, []);
+  }, [selectedStoreId]);
 
   const COLORS = ['#f39c12', '#3498db', '#e74c3c', '#27ae60'];
 
@@ -78,7 +91,7 @@ const OwnerDashboard = () => {
           매장 분석 대시보드
         </Typography>
         <Typography variant="body2">
-          {selectedStore} • 실시간 분석 데이터
+          {storeNames[selectedStoreId] || storeNames[1]} • 실시간 분석 데이터
         </Typography>
       </Box>
 
@@ -174,7 +187,7 @@ const OwnerDashboard = () => {
               <Button 
                 size="small" 
                 variant="outlined"
-                onClick={() => window.location.href = '/owner/analytics/1'}
+                onClick={() => window.location.href = `/owner/analytics/${selectedStoreId}`}
               >
                 더보기
               </Button>
@@ -236,22 +249,24 @@ const OwnerDashboard = () => {
               <Button 
                 size="small" 
                 variant="outlined"
-                onClick={() => window.location.href = '/owner/action-plan/1'}
->
-더보기
-</Button>
-</Box>
-        <Box sx={{ p: 2, border: '1px dashed #ddd', borderRadius: 1, textAlign: 'center' }}>
-          <Typography variant="body2" color="text.secondary">
-            AI 피드백을 저장하면 실행 계획이 표시됩니다
-          </Typography>
-        </Box>
-      </CardContent>
-    </Card>
-  </Box>
+                onClick={() => window.location.href = `/owner/action-plan/${selectedStoreId}`}
+              >
+                더보기
+              </Button>
+            </Box>
+            
+            <Box sx={{ p: 2, border: '1px dashed #ddd', borderRadius: 1, textAlign: 'center' }}>
+              <Typography variant="body2" color="text.secondary">
+                AI 피드백을 저장하면 실행 계획이 표시됩니다
+              </Typography>
+            </Box>
+          </CardContent>
+        </Card>
+      </Box>
 
-  <OwnerNavigation />
-</Box>
-);
+      <OwnerNavigation />
+    </Box>
+  );
 };
+
 export default OwnerDashboard;

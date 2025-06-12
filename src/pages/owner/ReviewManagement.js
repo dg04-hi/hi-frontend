@@ -18,6 +18,7 @@ import { useParams } from 'react-router-dom';
 import Header from '../../components/common/Header';
 import { formatDateTime } from '../../utils/helpers';
 import Modal from '../../components/ui/Modal';
+import { OwnerNavigation } from '../../components/common/Navigation';
 
 const ReviewManagement = () => {
   const { storeId } = useParams();
@@ -258,7 +259,7 @@ const ReviewManagement = () => {
           삭제하기
         </MenuItem>
       </Menu>
-    </Box>
+   <OwnerNavigation /> </Box>
   );
 };
 
