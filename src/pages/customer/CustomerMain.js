@@ -1,53 +1,65 @@
+//* src/pages/customer/CustomerMain.js
 import React, { useState, useEffect } from 'react';
 import {
   Box,
   Typography,
-  TextField,
-  InputAdornment,
   Card,
   CardContent,
   CardMedia,
   Chip,
+  TextField,
+  InputAdornment,
   Select,
   MenuItem,
   FormControl,
   InputLabel
 } from '@mui/material';
 import { Search, LocationOn, Star } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 import { CustomerNavigation } from '../../components/common/Navigation';
-import { formatNumber } from '../../utils/helpers';
 
 const CustomerMain = () => {
+  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
-  const [sortBy, setSortBy] = useState('distance');
+  const [sortBy, setSortBy] = useState('recommend');
   const [selectedTags, setSelectedTags] = useState([]);
   const [stores, setStores] = useState([]);
 
   const availableTags = [
-    '한식', '중식', '일식', '양식', '분식', '치킨', '피자', '카페',
-    '혼밥', '데이트', '회식', '가족', '깨끗', '맛집', '가성비'
+    '한식', '중식', '일식', '양식', '분식', '카페', '치킨', '피자',
+    '혼밥', '가성비', '분위기', '데이트', '반려동물', '비건', '24시간'
   ];
 
   const mockStores = [
     {
       id: 1,
       name: '맛있는 한식당',
-      location: '서울 강남구 역삼동',
-      rating: 4.5,
-      reviewCount: 127,
-      tags: ['한식', '혼밥', '깨끗'],
+      location: '강남구 역삼동',
       distance: 250,
-      image: '/images/store-sample.jpg'
+      rating: 4.5,
+      reviewCount: 123,
+      tags: ['한식', '혼밥', '가성비'],
+      image: '/images/store1.jpg'
     },
     {
       id: 2,
+      name: '이탈리안 레스토랑',
+      location: '강남구 신사동',
+      distance: 450,
+      rating: 4.3,
+      reviewCount: 87,
+      tags: ['양식', '데이트', '분위기'],
+      image: '/images/store2.jpg'
+    },
+    {
+      id: 3,
       name: '분식천국',
-      location: '서울 강남구 역삼동',
+      location: '강남구 압구정동',
+      distance: 320,
       rating: 4.1,
-      reviewCount: 89,
-      tags: ['분식', '가성비', '빠른'],
-      distance: 350,
-      image: '/images/store-sample.jpg'
+      reviewCount: 156,
+      tags: ['분식', '가성비', '혼밥'],
+      image: '/images/store3.jpg'
     }
   ];
 
@@ -55,12 +67,21 @@ const CustomerMain = () => {
     setStores(mockStores);
   }, []);
 
+  const formatNumber = (number) => {
+    return number?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') || '0';
+  };
+
   const handleTagClick = (tag) => {
     setSelectedTags(prev => 
       prev.includes(tag) 
         ? prev.filter(t => t !== tag)
         : [...prev, tag]
     );
+  };
+
+  // 매장 클릭 핸들러 추가
+  const handleStoreClick = (storeId) => {
+    navigate(`/customer/store/${storeId}`);
   };
 
   const filteredStores = stores
@@ -71,7 +92,7 @@ const CustomerMain = () => {
     .sort((a, b) => {
       if (sortBy === 'distance') return a.distance - b.distance;
       if (sortBy === 'rating') return b.rating - a.rating;
-      if (sortBy === 'recommend') return b.rating - a.rating; // 임시로 평점 기준
+      if (sortBy === 'recommend') return b.rating - a.rating;
       return 0;
     });
 
@@ -148,7 +169,20 @@ const CustomerMain = () => {
         </Typography>
 
         {filteredStores.map((store) => (
-          <Card key={store.id} className="store-card" sx={{ mb: 2 }}>
+          <Card 
+            key={store.id} 
+            className="store-card" 
+            sx={{ 
+              mb: 2, 
+              cursor: 'pointer',
+              '&:hover': {
+                boxShadow: 3,
+                transform: 'scale(1.02)',
+                transition: 'all 0.2s ease-in-out'
+              }
+            }}
+            onClick={() => handleStoreClick(store.id)}
+          >
             <Box sx={{ display: 'flex' }}>
               <CardMedia
                 component="img"
