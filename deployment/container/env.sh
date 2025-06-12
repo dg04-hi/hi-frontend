@@ -1,11 +1,11 @@
 #!/bin/sh
 
-# 고정 INGRESS_HOST 사용
-INGRESS_HOST=20.249.191.180
+# 고정 INGRESS_HOST 사용 (백엔드 배포 후 동적으로 변경 가능)
+INGRESS_HOST=${INGRESS_HOST:-20.249.191.180}
 
 echo "Setting up runtime configuration with INGRESS_HOST: ${INGRESS_HOST}"
 
-# runtime-env.js 파일 생성 (백엔드 API URL은 나중에 수정 예정)
+# runtime-env.js 파일 생성 (현재는 Mock API로 설정)
 cat > /usr/share/nginx/html/runtime-env.js << EOF
 window.__runtime_config__ = {
   AUTH_URL: 'http://${INGRESS_HOST}/auth',

@@ -24,7 +24,7 @@ COPY deployment/container/nginx.conf /etc/nginx/conf.d/default.conf
 # 빌드된 파일을 nginx html 디렉토리로 복사
 COPY --from=builder /app/build /usr/share/nginx/html
 
-# 환경변수 설정 스크립트 복사
+# 환경변수 설정 스크립트 복사 및 실행 권한 부여
 COPY deployment/container/env.sh /docker-entrypoint.d/env.sh
 RUN chmod +x /docker-entrypoint.d/env.sh
 

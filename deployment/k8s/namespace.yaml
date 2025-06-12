@@ -4,4 +4,4 @@ metadata:
   name: ns-hiorder
   labels:
     name: ns-hiorder
-    project: hi-order
+    app: hiorder
