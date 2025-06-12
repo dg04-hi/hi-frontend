@@ -1,13 +1,13 @@
 # Node.js 빌드 스테이지
-FROM node:18-alpine as builder
+FROM node:18-alpine AS builder
 
 WORKDIR /app
 
 # 의존성 파일 복사
 COPY package*.json ./
 
-# 의존성 설치
-RUN npm ci --only=production
+# 의존성 설치 (lock 파일 불일치 문제 해결)
+RUN npm install --omit=dev
 
 # 소스 코드 복사
 COPY . .

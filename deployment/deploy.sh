@@ -30,7 +30,7 @@ check_env_vars() {
         echo ""
         echo "설정 예시:"
         echo "export RESOURCE_GROUP=rg-digitalgarage-03"
-        echo "export ACR_NAME=your-acr-name"
+        echo "export ACR_NAME=acrdigitalgarage03"
         echo "export CLUSTER_NAME=aks-digitalgarage-03"
         echo "export NAMESPACE=ns-hiorder"
         exit 1
@@ -82,22 +82,49 @@ if ! az acr login --name $ACR_NAME; then
 fi
 log_success "ACR 로그인 완료"
 
+# package.json 존재 확인
+log_info "프로젝트 파일 확인 중..."
+if [ ! -f "package.json" ]; then
+    log_error "package.json 파일을 찾을 수 없습니다. hi-frontend 디렉토리에서 실행해주세요."
+    exit 1
+fi
+log_success "프로젝트 파일 확인됨"
+
+# Node.js 의존성 설치 (선택사항 - Docker에서 처리하므로)
+# log_info "Node.js 의존성 확인 중..."
+# if [ ! -d "node_modules" ]; then
+#     log_info "node_modules가 없습니다. 의존성을 설치합니다..."
+#     npm install
+# fi
+
 # Docker 이미지 빌드
 log_info "Docker 이미지 빌드 중..."
 FULL_IMAGE_NAME="$ACR_LOGIN_SERVER/$IMAGE_NAME:$IMAGE_TAG"
+
+# 빌드 시간 측정
+BUILD_START=$(date +%s)
 if ! docker build -t $FULL_IMAGE_NAME -f deployment/container/Dockerfile .; then
     log_error "Docker 빌드 실패"
+    log_info "문제 해결 방법:"
+    log_info "1. 로컬에서 npm install 실행"
+    log_info "2. npm run build 테스트"
+    log_info "3. Dockerfile 내용 확인"
     exit 1
 fi
-log_success "Docker 이미지 빌드 완료: $FULL_IMAGE_NAME"
+BUILD_END=$(date +%s)
+BUILD_TIME=$((BUILD_END - BUILD_START))
+log_success "Docker 이미지 빌드 완료 (${BUILD_TIME}초): $FULL_IMAGE_NAME"
 
 # Docker 이미지 푸시
 log_info "Docker 이미지를 ACR에 푸시 중..."
+PUSH_START=$(date +%s)
 if ! docker push $FULL_IMAGE_NAME; then
     log_error "Docker 이미지 푸시 실패"
     exit 1
 fi
-log_success "Docker 이미지 푸시 완료"
+PUSH_END=$(date +%s)
+PUSH_TIME=$((PUSH_END - PUSH_START))
+log_success "Docker 이미지 푸시 완료 (${PUSH_TIME}초)"
 
 # latest 태그도 함께 푸시
 LATEST_IMAGE_NAME="$ACR_LOGIN_SERVER/$IMAGE_NAME:latest"
@@ -135,19 +162,25 @@ log_success "Kubernetes 배포 완료"
 
 # 배포 상태 확인
 log_info "배포 완료 대기 중... (최대 5분)"
+DEPLOY_START=$(date +%s)
 if ! kubectl rollout status deployment/hi-frontend -n $NAMESPACE --timeout=300s; then
     log_error "배포 완료 대기 시간 초과"
     log_info "현재 Pod 상태:"
     kubectl get pods -n $NAMESPACE -l app=hi-frontend
-    kubectl describe pods -n $NAMESPACE -l app=hi-frontend
+    log_info "Pod 상세 정보:"
+    kubectl describe pods -n $NAMESPACE -l app=hi-frontend | grep -A 5 -B 5 "Warning\|Error" || echo "특별한 오류 없음"
     exit 1
 fi
+DEPLOY_END=$(date +%s)
+DEPLOY_TIME=$((DEPLOY_END - DEPLOY_START))
 
-log_success "Frontend 배포 완료!"
+TOTAL_TIME=$((BUILD_TIME + PUSH_TIME + DEPLOY_TIME))
+
+log_success "Frontend 배포 완료! (총 ${TOTAL_TIME}초)"
 echo ""
 echo "================================ 배포 상태 ================================"
 echo "📦 Pods:"
-kubectl get pods -n $NAMESPACE -l app=hi-frontend
+kubectl get pods -n $NAMESPACE -l app=hi-frontend -o wide
 echo ""
 echo "🔗 Services:"
 kubectl get svc -n $NAMESPACE
@@ -159,3 +192,4 @@ echo "================================================================"
 log_success "🌐 접속 주소: http://$INGRESS_HOST/frontend"
 log_success "🌐 메인 접속: http://$INGRESS_HOST/"
 log_info "📋 배포 로그 확인: kubectl logs -n $NAMESPACE -l app=hi-frontend"
+log_info "🔍 상태 확인: ./deployment/check-status.sh"
