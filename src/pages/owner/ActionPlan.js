@@ -107,7 +107,7 @@ const ActionPlan = () => {
 
   useEffect(() => {
     setActionPlans(mockActionPlans);
-  }, [storeId]);
+  }, []);
 
   const getTypeLabel = (type) => {
     switch (type) {
@@ -205,20 +205,64 @@ const ActionPlan = () => {
                               checked={plan.completed}
                               onChange={() => handleToggleComplete(category.id, plan.id)}
                               icon={<RadioButtonUnchecked />}
-                              checke//* src/components/ui/Button.js
-import React from 'react';
-import { Button as MuiButton } from '@mui/material';
+                              checkedIcon={<CheckCircle />}
+                            />
+                          }
+                          label=""
+                          sx={{ mr: 1, mt: -1 }}
+                        />
+                        <Box sx={{ flex: 1 }}>
+                          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
+                            <Chip 
+                              label={getTypeLabel(plan.type)} 
+                              color={getTypeColor(plan.type)}
+                              size="small"
+                            />
+                            <Typography 
+                              variant="subtitle2" 
+                              sx={{ 
+                                fontWeight: 'bold',
+                                textDecoration: plan.completed ? 'line-through' : 'none',
+                                color: plan.completed ? 'text.secondary' : 'text.primary'
+                              }}
+                            >
+                              {plan.title}
+                            </Typography>
+                          </Box>
+                          <Typography 
+                            variant="body2" 
+                            sx={{ 
+                              color: plan.completed ? 'text.secondary' : 'text.primary',
+                              textDecoration: plan.completed ? 'line-through' : 'none'
+                            }}
+                          >
+                            {plan.description}
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Box>
+                  ))
+                }
 
-const Button = ({ children, variant = 'contained', color = 'primary', ...props }) => {
-  return (
-    <MuiButton
-      variant={variant}
-      color={color}
-      {...props}
-    >
-      {children}
-    </MuiButton>
+                <Box sx={{ mt: 2 }}>
+                  <Typography variant="caption" color="text.secondary">
+                    완료: {category.plans.filter(p => p.completed).length}/{category.plans.length}개
+                  </Typography>
+                </Box>
+              </CardContent>
+            </Card>
+          ))
+        )}
+
+        {/* 저장 안내 */}
+        {actionPlans.length > 0 && (
+          <Alert severity="success" sx={{ mt: 2 }}>
+            💡 체크박스를 클릭하면 실행 완료 상태가 자동으로 저장됩니다.
+          </Alert>
+        )}
+      </Box>
+    </Box>
   );
 };
 
-export default Button;
+export default ActionPlan;
