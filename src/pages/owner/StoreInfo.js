@@ -1,3 +1,4 @@
+//* src/pages/owner/StoreInfo.js
 import React, { useState, useEffect } from 'react';
 import {
   Box,
@@ -8,12 +9,13 @@ import {
   Button,
   Grid
 } from '@mui/material';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../../components/common/Header';
 import { OwnerNavigation } from '../../components/common/Navigation';
 
 const StoreInfo = () => {
   const { storeId } = useParams();
+  const navigate = useNavigate();
   const [storeInfo, setStoreInfo] = useState({
     name: '',
     description: '',
@@ -50,7 +52,7 @@ const StoreInfo = () => {
 
   return (
     <Box className="mobile-container">
-      <Header title="매장 정보 관리" />
+      <Header title="매장 정보 관리" onBack={() => navigate(-1)} />
       
       <Box className="content-area">
         <Card>

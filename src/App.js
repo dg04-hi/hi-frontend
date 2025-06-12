@@ -1,3 +1,4 @@
+//* src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './hooks/useAuth';
@@ -18,6 +19,8 @@ import ProfileEdit from './pages/customer/ProfileEdit';
 import OwnerDashboard from './pages/owner/OwnerDashboard';
 import StoreList from './pages/owner/StoreList';
 import StoreManagement from './pages/owner/StoreManagement';
+import StoreInfo from './pages/owner/StoreInfo'; // 새로 추가
+import StoreRegister from './pages/owner/StoreRegister'; // 새로 추가
 import MenuManagement from './pages/owner/MenuManagement';
 import ReviewManagement from './pages/owner/ReviewManagement';
 import ExternalIntegration from './pages/owner/ExternalIntegration';
@@ -51,7 +54,9 @@ function App() {
               <Route path="/owner/dashboard" element={<Navigate to="/owner/dashboard/1" replace />} />
               <Route path="/owner/dashboard/:storeId" element={<OwnerDashboard />} />
               <Route path="/owner/stores" element={<StoreList />} />
+              <Route path="/owner/store/register" element={<StoreRegister />} /> {/* 새로 추가 */}
               <Route path="/owner/store/:storeId/management" element={<StoreManagement />} />
+              <Route path="/owner/store/:storeId/info" element={<StoreInfo />} /> {/* 새로 추가 */}
               <Route path="/owner/store/:storeId/menu" element={<MenuManagement />} />
               <Route path="/owner/store/:storeId/reviews" element={<ReviewManagement />} />
               <Route path="/owner/external" element={<ExternalIntegration />} />
