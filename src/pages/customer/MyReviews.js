@@ -5,11 +5,16 @@ import {
   Card,
   CardContent,
   Rating,
-  Button,
   Chip,
   IconButton,
   Menu,
-  MenuItem
+  MenuItem,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Button,
+  TextField
 } from '@mui/material';
 import { MoreVert, Edit, Delete } from '@mui/icons-material';
 import { CustomerNavigation } from '../../components/common/Navigation';
@@ -19,6 +24,11 @@ const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedReview, setSelectedReview] = useState(null);
+  const [editDialog, setEditDialog] = useState(false);
+  const [editForm, setEditForm] = useState({
+    rating: 5,
+    content: ''
+  });
 
   const mockReviews = [
     {
@@ -45,6 +55,7 @@ const MyReviews = () => {
   }, []);
 
   const handleMenuOpen = (event, review) => {
+    event.stopPropagation(); // 이벤트 전파 중지
     setAnchorEl(event.currentTarget);
     setSelectedReview(review);
   };
@@ -55,13 +66,49 @@ const MyReviews = () => {
   };
 
   const handleEdit = () => {
-    console.log('Edit review:', selectedReview);
+    if (selectedReview) {
+      setEditForm({
+        rating: selectedReview.rating,
+        content: selectedReview.content
+      });
+      setEditDialog(true);
+    }
     handleMenuClose();
   };
 
+  const handleEditSave = () => {
+    if (selectedReview) {
+      setReviews(prev => prev.map(review => 
+        review.id === selectedReview.id 
+          ? { ...review, rating: editForm.rating, content: editForm.content }
+          : review
+      ));
+      setEditDialog(false);
+      setSelectedReview(null);
+      alert('리뷰가 수정되었습니다.');
+    }
+  };
+
   const handleDelete = () => {
-    setReviews(prev => prev.filter(r => r.id !== selectedReview.id));
+    if (selectedReview) {
+      setReviews(prev => prev.filter(r => r.id !== selectedReview.id));
+      alert('리뷰가 삭제되었습니다.');
+    }
     handleMenuClose();
+  };
+
+  const handleInputChange = (e) => {
+    setEditForm({
+      ...editForm,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleRatingChange = (event, newValue) => {
+    setEditForm({
+      ...editForm,
+      rating: newValue || 1
+    });
   };
 
   return (
@@ -102,6 +149,7 @@ const MyReviews = () => {
                   <IconButton 
                     size="small"
                     onClick={(e) => handleMenuOpen(e, review)}
+                    sx={{ ml: 1 }}
                   >
                     <MoreVert />
                   </IconButton>
@@ -150,10 +198,19 @@ const MyReviews = () => {
         )}
       </Box>
 
+      {/* 메뉴 */}
       <Menu
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
         onClose={handleMenuClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
       >
         <MenuItem onClick={handleEdit}>
           <Edit fontSize="small" sx={{ mr: 1 }} />
@@ -164,6 +221,54 @@ const MyReviews = () => {
           삭제하기
         </MenuItem>
       </Menu>
+
+      {/* 리뷰 수정 다이얼로그 */}
+      <Dialog
+        open={editDialog}
+        onClose={() => setEditDialog(false)}
+        maxWidth="sm"
+        fullWidth
+      >
+        <DialogTitle>리뷰 수정</DialogTitle>
+        <DialogContent>
+          <Box sx={{ pt: 2 }}>
+            <Typography variant="body2" sx={{ mb: 2 }}>
+              별점
+            </Typography>
+            <Rating
+              value={editForm.rating}
+              onChange={handleRatingChange}
+              size="large"
+              sx={{ mb: 2 }}
+            />
+            
+            <TextField
+              fullWidth
+              label="리뷰 내용"
+              name="content"
+              value={editForm.content}
+              onChange={handleInputChange}
+              multiline
+              rows={4}
+              margin="normal"
+              helperText={`${editForm.content.length}/100자`}
+              inputProps={{ maxLength: 100 }}
+            />
+          </Box>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setEditDialog(false)}>
+            취소
+          </Button>
+          <Button 
+            variant="contained" 
+            onClick={handleEditSave}
+            disabled={!editForm.content.trim() || editForm.content.length < 10}
+          >
+            저장
+          </Button>
+        </DialogActions>
+      </Dialog>
 
       <CustomerNavigation />
     </Box>

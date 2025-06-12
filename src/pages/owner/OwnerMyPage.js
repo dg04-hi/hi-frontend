@@ -13,6 +13,7 @@ import {
   Person, 
   Subscriptions,
   Store,
+  Add,
   ExitToApp,
   ChevronRight 
 } from '@mui/icons-material';
@@ -58,6 +59,34 @@ const OwnerMyPage = () => {
         <List>
           <ListItem 
             button 
+            onClick={() => navigate('/owner/store/register')}
+          >
+            <ListItemIcon>
+              <Add />
+            </ListItemIcon>
+            <ListItemText 
+              primary="매장 등록"
+              secondary="새로운 매장 등록하기"
+            />
+            <ChevronRight />
+          </ListItem>
+
+          <ListItem 
+            button 
+            onClick={() => navigate('/owner/stores')}
+          >
+            <ListItemIcon>
+              <Store />
+            </ListItemIcon>
+            <ListItemText 
+              primary="내 매장 목록"
+              secondary="등록된 매장 목록 조회"
+            />
+            <ChevronRight />
+          </ListItem>
+
+          <ListItem 
+            button 
             onClick={() => navigate('/owner/subscription')}
           >
             <ListItemIcon>
@@ -80,20 +109,6 @@ const OwnerMyPage = () => {
             <ListItemText 
               primary="회원정보 수정"
               secondary="닉네임, 아이디, 비밀번호 변경"
-            />
-            <ChevronRight />
-          </ListItem>
-
-          <ListItem 
-            button 
-            onClick={() => navigate('/owner/stores')}
-          >
-            <ListItemIcon>
-              <Store />
-            </ListItemIcon>
-            <ListItemText 
-              primary="내 매장 목록"
-              secondary="등록된 매장 관리"
             />
             <ChevronRight />
           </ListItem>

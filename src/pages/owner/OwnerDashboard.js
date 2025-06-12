@@ -7,15 +7,26 @@ import {
   Button
 } from '@mui/material';
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { useParams } from 'react-router-dom';
 import { OwnerNavigation, useSelectedStore } from '../../components/common/Navigation';
 import { formatNumber } from '../../utils/helpers';
 
 const OwnerDashboard = () => {
-  const { selectedStoreId } = useSelectedStore();
+  const { storeId } = useParams();
+  const { selectedStoreId, setSelectedStoreId } = useSelectedStore();
   const [orderStats, setOrderStats] = useState([]);
   const [genderAgeStats, setGenderAgeStats] = useState([]);
   const [timeStats, setTimeStats] = useState([]);
   const [aiInsights, setAiInsights] = useState([]);
+
+  // URL의 storeId와 Context의 selectedStoreId 동기화
+  useEffect(() => {
+    if (storeId && parseInt(storeId) !== selectedStoreId) {
+      setSelectedStoreId(parseInt(storeId));
+    }
+  }, [storeId, selectedStoreId, setSelectedStoreId]);
+
+  const currentStoreId = storeId ? parseInt(storeId) : selectedStoreId;
 
   const storeNames = {
     1: '분식천국',
@@ -75,11 +86,11 @@ const OwnerDashboard = () => {
   ];
 
   useEffect(() => {
-    setOrderStats(mockOrderStats[selectedStoreId] || mockOrderStats[1]);
+    setOrderStats(mockOrderStats[currentStoreId] || mockOrderStats[1]);
     setGenderAgeStats(mockGenderAgeStats);
     setTimeStats(mockTimeStats);
     setAiInsights(mockAiInsights);
-  }, [selectedStoreId]);
+  }, [currentStoreId]);
 
   const COLORS = ['#f39c12', '#3498db', '#e74c3c', '#27ae60'];
 
@@ -91,7 +102,7 @@ const OwnerDashboard = () => {
           매장 분석 대시보드
         </Typography>
         <Typography variant="body2">
-          {storeNames[selectedStoreId] || storeNames[1]} • 실시간 분석 데이터
+          {storeNames[currentStoreId] || storeNames[1]} • 실시간 분석 데이터
         </Typography>
       </Box>
 
@@ -176,97 +187,96 @@ const OwnerDashboard = () => {
             </Box>
           </CardContent>
         </Card>
-
-        {/* AI 피드백 */}
-        <Card className="stat-card">
-          <CardContent>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-              <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-                🤖 AI 피드백
-              </Typography>
-              <Button 
-                size="small" 
-                variant="outlined"
-                onClick={() => window.location.href = `/owner/analytics/${selectedStoreId}`}
-              >
-                더보기
-              </Button>
-            </Box>
-            
-            {aiInsights.slice(0, 2).map((insight, index) => (
-              <Box key={index} sx={{ mb: 2, p: 2, bgcolor: '#f8f9fa', borderRadius: 1 }}>
-                <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 1 }}>
-                  {insight.category}
-                </Typography>
-                <Typography variant="body2" sx={{ mb: 1 }}>
-                  긍정: {insight.positive}% | 부정: {insight.negative}%
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {insight.insight}
-                </Typography>
-              </Box>
-            ))}
-          </CardContent>
-        </Card>
-
-        {/* 리뷰 분석 */}
-        <Card className="stat-card">
-          <CardContent>
-            <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2 }}>
-              📝 리뷰 분석
+    {/* AI 피드백 */}
+    <Card className="stat-card">
+      <CardContent>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+            🤖 AI 피드백
+          </Typography>
+          <Button 
+            size="small" 
+            variant="outlined"
+            onClick={() => window.location.href = `/owner/analytics/${currentStoreId}`}
+          >
+            더보기
+          </Button>
+        </Box>
+        
+        {aiInsights.slice(0, 2).map((insight, index) => (
+          <Box key={index} sx={{ mb: 2, p: 2, bgcolor: '#f8f9fa', borderRadius: 1 }}>
+            <Typography variant="subtitle2" sx={{ fontWeight: 'bold', mb: 1 }}>
+              {insight.category}
             </Typography>
-            <Typography variant="body2" sx={{ mb: 2 }}>
-              최근 30일 • 총 {formatNumber(47)}개 리뷰
+            <Typography variant="body2" sx={{ mb: 1 }}>
+              긍정: {insight.positive}% | 부정: {insight.negative}%
             </Typography>
-            
-            <Box sx={{ p: 2, bgcolor: '#e8f5e8', borderRadius: 1, mb: 1 }}>
-              <Typography variant="body2" sx={{ fontWeight: 'bold', color: '#27ae60' }}>
-                😊 좋은 점
-              </Typography>
-              <Typography variant="body2">
-                빠른 서비스 (23%), 맛 (18%), 가성비 (15%)
-              </Typography>
-            </Box>
-            
-            <Box sx={{ p: 2, bgcolor: '#fdf2f2', borderRadius: 1 }}>
-              <Typography variant="body2" sx={{ fontWeight: 'bold', color: '#e74c3c' }}>
-                😔 아쉬운 점
-              </Typography>
-              <Typography variant="body2">
-                대기시간 (12%), 매장 청결 (8%)
-              </Typography>
-            </Box>
-          </CardContent>
-        </Card>
+            <Typography variant="body2" color="text.secondary">
+              {insight.insight}
+            </Typography>
+          </Box>
+        ))}
+      </CardContent>
+    </Card>
 
-        {/* 실행 계획 */}
-        <Card className="stat-card">
-          <CardContent>
-            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
-              <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-                📋 실행 계획
-              </Typography>
-              <Button 
-                size="small" 
-                variant="outlined"
-                onClick={() => window.location.href = `/owner/action-plan/${selectedStoreId}`}
-              >
-                더보기
-              </Button>
-            </Box>
-            
-            <Box sx={{ p: 2, border: '1px dashed #ddd', borderRadius: 1, textAlign: 'center' }}>
-              <Typography variant="body2" color="text.secondary">
-                AI 피드백을 저장하면 실행 계획이 표시됩니다
-              </Typography>
-            </Box>
-          </CardContent>
-        </Card>
-      </Box>
+    {/* 리뷰 분석 */}
+    <Card className="stat-card">
+      <CardContent>
+        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2 }}>
+          📝 리뷰 분석
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 2 }}>
+          최근 30일 • 총 {formatNumber(47)}개 리뷰
+        </Typography>
+        
+        <Box sx={{ p: 2, bgcolor: '#e8f5e8', borderRadius: 1, mb: 1 }}>
+          <Typography variant="body2" sx={{ fontWeight: 'bold', color: '#27ae60' }}>
+            😊 좋은 점
+          </Typography>
+          <Typography variant="body2">
+            빠른 서비스 (23%), 맛 (18%), 가성비 (15%)
+          </Typography>
+        </Box>
+        
+        <Box sx={{ p: 2, bgcolor: '#fdf2f2', borderRadius: 1 }}>
+          <Typography variant="body2" sx={{ fontWeight: 'bold', color: '#e74c3c' }}>
+            😔 아쉬운 점
+          </Typography>
+          <Typography variant="body2">
+            대기시간 (12%), 매장 청결 (8%)
+          </Typography>
+        </Box>
+      </CardContent>
+    </Card>
 
-      <OwnerNavigation />
-    </Box>
-  );
+    {/* 실행 계획 */}
+    <Card className="stat-card">
+      <CardContent>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+            📋 실행 계획
+          </Typography>
+          <Button 
+            size="small" 
+            variant="outlined"
+            onClick={() => window.location.href = `/owner/action-plan/${currentStoreId}`}
+          >
+            더보기
+          </Button>
+        </Box>
+        
+        <Box sx={{ p: 2, border: '1px dashed #ddd', borderRadius: 1, textAlign: 'center' }}>
+          <Typography variant="body2" color="text.secondary">
+            AI 피드백을 저장하면 실행 계획이 표시됩니다
+          </Typography>
+        </Box>
+      </CardContent>
+    </Card>
+  </Box>
+
+  <OwnerNavigation />
+</Box>
+);
 };
 
 export default OwnerDashboard;

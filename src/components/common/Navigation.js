@@ -82,9 +82,9 @@ const OwnerNavigation = () => {
   const handleStoreChange = (newStoreId) => {
     setSelectedStoreId(newStoreId);
     
-    // 현재 페이지에 따라 적절한 URL로 이동
+    // 현재 페이지에 따라 적절한 URL로 이동 (대시보드도 매장 ID 포함)
     if (location.pathname.includes('/owner/dashboard')) {
-      navigate('/owner/dashboard');
+      navigate(`/owner/dashboard/${newStoreId}`);
     } else if (location.pathname.includes('/owner/store') && location.pathname.includes('/management')) {
       navigate(`/owner/store/${newStoreId}/management`);
     } else if (location.pathname.includes('/owner/analytics')) {
@@ -107,7 +107,7 @@ const OwnerNavigation = () => {
           borderRadius: 1,
           padding: '4px 8px',
           boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
-          maxWidth: '140px' // 모바일에 맞게 최대 너비 제한
+          maxWidth: '140px'
         }}
       >
         <FormControl size="small" sx={{ minWidth: 100 }}>
@@ -139,7 +139,7 @@ const OwnerNavigation = () => {
         onChange={(event, newValue) => {
           switch (newValue) {
             case 0:
-              navigate('/owner/dashboard');
+              navigate(`/owner/dashboard/${selectedStoreId}`);
               break;
             case 1:
               navigate(`/owner/store/${selectedStoreId}/management`);
