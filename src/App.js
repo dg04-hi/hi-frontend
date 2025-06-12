@@ -28,6 +28,10 @@ import SubscriptionManagement from './pages/owner/SubscriptionManagement';
 import AnalyticsDetail from './pages/owner/AnalyticsDetail';
 import ActionPlan from './pages/owner/ActionPlan';
 
+import StoreInfo from './pages/owner/StoreInfo';
+import StoreRegister from './pages/owner/StoreRegister';
+import OwnerMyPage from './pages/owner/OwnerMyPage';
+
 function App() {
   return (
     <AuthProvider>
@@ -58,6 +62,10 @@ function App() {
             <Route path="/owner/subscription" element={<SubscriptionManagement />} />
             <Route path="/owner/analytics/:storeId" element={<AnalyticsDetail />} />
             <Route path="/owner/action-plan/:storeId" element={<ActionPlan />} />
+
+            <Route path="/owner/store/:storeId/info" element={<StoreInfo />} />
+            <Route path="/owner/store/register" element={<StoreRegister />} />
+            <Route path="/owner/mypage" element={<OwnerMyPage />} />
             
             {/* Default redirect */}
             <Route path="/" element={<Navigate to="/login" replace />} />

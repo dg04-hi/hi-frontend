@@ -4,7 +4,6 @@ import {
   Typography,
   Card,
   CardContent,
-  Button,
   List,
   ListItem,
   ListItemIcon,
@@ -16,6 +15,7 @@ import {
   RateReview, 
   Settings, 
   Analytics,
+  Link,
   ChevronRight
 } from '@mui/icons-material';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -66,6 +66,12 @@ const StoreManagement = () => {
       title: '매장 분석',
       description: 'AI 피드백 및 통계 분석',
       action: () => navigate(`/owner/analytics/${storeId}`)
+    },
+    {
+      icon: <Link />,
+      title: '외부 플랫폼 연동',
+      description: '네이버, 카카오, 구글 연동 관리',
+      action: () => navigate('/owner/external')
     },
     {
       icon: <Settings />,

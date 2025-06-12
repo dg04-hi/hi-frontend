@@ -4,8 +4,7 @@ import {
   Typography,
   Card,
   CardContent,
-  Button,
-  Grid
+  Button
 } from '@mui/material';
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { OwnerNavigation } from '../../components/common/Navigation';
@@ -14,7 +13,7 @@ import { formatNumber } from '../../utils/helpers';
 const OwnerDashboard = () => {
   const [selectedStore, setSelectedStore] = useState('분식천국');
   const [orderStats, setOrderStats] = useState([]);
-  const [genderStats, setGenderStats] = useState([]);
+  const [genderAgeStats, setGenderAgeStats] = useState([]);
   const [timeStats, setTimeStats] = useState([]);
   const [aiInsights, setAiInsights] = useState([]);
 
@@ -25,11 +24,12 @@ const OwnerDashboard = () => {
     { name: '튀김', value: 10 }
   ];
 
-  const mockGenderStats = [
-    { name: '남성 20대', value: 23 },
-    { name: '남성 30대', value: 45 },
-    { name: '여성 20대', value: 35 },
-    { name: '여성 30대', value: 40 }
+  const mockGenderAgeStats = [
+    { name: '남성 20대', value: 23, fill: '#3498db' },
+    { name: '남성 30대', value: 45, fill: '#2980b9' },
+    { name: '여성 20대', value: 35, fill: '#e74c3c' },
+    { name: '여성 30대', value: 40, fill: '#c0392b' },
+    { name: '기타', value: 12, fill: '#95a5a6' }
   ];
 
   const mockTimeStats = [
@@ -63,7 +63,7 @@ const OwnerDashboard = () => {
 
   useEffect(() => {
     setOrderStats(mockOrderStats);
-    setGenderStats(mockGenderStats);
+    setGenderAgeStats(mockGenderAgeStats);
     setTimeStats(mockTimeStats);
     setAiInsights(mockAiInsights);
   }, []);
@@ -83,7 +83,7 @@ const OwnerDashboard = () => {
       </Box>
 
       <Box className="content-area">
-        {/* 주문 통계 */}
+        {/* 인기 메뉴 통계 */}
         <Card className="stat-card">
           <CardContent>
             <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2 }}>
@@ -109,6 +109,38 @@ const OwnerDashboard = () => {
                 </PieChart>
               </ResponsiveContainer>
             </Box>
+          </CardContent>
+        </Card>
+
+        {/* 성별 연령대별 분석 */}
+        <Card className="stat-card">
+          <CardContent>
+            <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2 }}>
+              👥 성별·연령대별 분석
+            </Typography>
+            <Box sx={{ height: 200 }}>
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={genderAgeStats}
+                    cx="50%"
+                    cy="50%"
+                    outerRadius={60}
+                    fill="#8884d8"
+                    dataKey="value"
+                    label={({ name, value }) => `${name} ${value}%`}
+                  >
+                    {genderAgeStats.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.fill} />
+                    ))}
+                  </Pie>
+                  <Tooltip />
+                </PieChart>
+              </ResponsiveContainer>
+            </Box>
+            <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+              주요 고객층: 남성 30대 (45%), 여성 30대 (40%)
+            </Typography>
           </CardContent>
         </Card>
 
@@ -205,23 +237,21 @@ const OwnerDashboard = () => {
                 size="small" 
                 variant="outlined"
                 onClick={() => window.location.href = '/owner/action-plan/1'}
-              >
-                더보기
-              </Button>
-            </Box>
-            
-            <Box sx={{ p: 2, border: '1px dashed #ddd', borderRadius: 1, textAlign: 'center' }}>
-              <Typography variant="body2" color="text.secondary">
-                AI 피드백을 저장하면 실행 계획이 표시됩니다
-              </Typography>
-            </Box>
-          </CardContent>
-        </Card>
-      </Box>
+>
+더보기
+</Button>
+</Box>
+        <Box sx={{ p: 2, border: '1px dashed #ddd', borderRadius: 1, textAlign: 'center' }}>
+          <Typography variant="body2" color="text.secondary">
+            AI 피드백을 저장하면 실행 계획이 표시됩니다
+          </Typography>
+        </Box>
+      </CardContent>
+    </Card>
+  </Box>
 
-      <OwnerNavigation />
-    </Box>
-  );
+  <OwnerNavigation />
+</Box>
+);
 };
-
 export default OwnerDashboard;

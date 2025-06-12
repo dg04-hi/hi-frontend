@@ -11,16 +11,16 @@ import {
 } from '@mui/material';
 import { 
   Person, 
-  Favorite, 
-  RateReview,
+  Subscriptions,
+  Store,
   ExitToApp,
   ChevronRight 
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
-import { CustomerNavigation } from '../../components/common/Navigation';
+import { OwnerNavigation } from '../../components/common/Navigation';
 import { useAuth } from '../../hooks/useAuth';
 
-const MyPage = () => {
+const OwnerMyPage = () => {
   const navigate = useNavigate();
   const { user, logout } = useAuth();
 
@@ -32,9 +32,9 @@ const MyPage = () => {
   return (
     <Box className="mobile-container">
       {/* 헤더 */}
-      <Box sx={{ p: 2, bgcolor: '#f39c12', color: 'white' }}>
+      <Box sx={{ p: 2, bgcolor: '#2c3e50', color: 'white' }}>
         <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-          마이페이지
+          점주 마이페이지
         </Typography>
       </Box>
 
@@ -42,10 +42,13 @@ const MyPage = () => {
         {/* 프로필 섹션 */}
         <Box sx={{ textAlign: 'center', py: 3 }}>
           <Avatar sx={{ width: 80, height: 80, margin: '0 auto', mb: 2 }}>
-            {user?.nickname?.[0] || 'U'}
+            {user?.nickname?.[0] || 'O'}
           </Avatar>
           <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
-            {user?.nickname || '사용자'}
+            {user?.nickname || '점주'}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            사업자
           </Typography>
         </Box>
 
@@ -55,14 +58,14 @@ const MyPage = () => {
         <List>
           <ListItem 
             button 
-            onClick={() => navigate('/customer/my-reviews')}
+            onClick={() => navigate('/owner/subscription')}
           >
             <ListItemIcon>
-              <RateReview />
+              <Subscriptions />
             </ListItemIcon>
             <ListItemText 
-              primary="내가 쓴 리뷰"
-              secondary="작성한 리뷰 목록 확인"
+              primary="구독 관리"
+              secondary="구독 플랜 확인 및 변경"
             />
             <ChevronRight />
           </ListItem>
@@ -83,14 +86,14 @@ const MyPage = () => {
 
           <ListItem 
             button 
-            onClick={() => navigate('/customer/preferences')}
+            onClick={() => navigate('/owner/stores')}
           >
             <ListItemIcon>
-              <Favorite />
+              <Store />
             </ListItemIcon>
             <ListItemText 
-              primary="취향 설정"
-              secondary="선호하는 음식 종류와 분위기 설정"
+              primary="내 매장 목록"
+              secondary="등록된 매장 관리"
             />
             <ChevronRight />
           </ListItem>
@@ -106,9 +109,9 @@ const MyPage = () => {
         </List>
       </Box>
 
-      <CustomerNavigation />
+      <OwnerNavigation />
     </Box>
   );
 };
 
-export default MyPage;
+export default OwnerMyPage;

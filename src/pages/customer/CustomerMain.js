@@ -8,7 +8,6 @@ import {
   CardContent,
   CardMedia,
   Chip,
-  Button,
   Select,
   MenuItem,
   FormControl,
@@ -72,6 +71,7 @@ const CustomerMain = () => {
     .sort((a, b) => {
       if (sortBy === 'distance') return a.distance - b.distance;
       if (sortBy === 'rating') return b.rating - a.rating;
+      if (sortBy === 'recommend') return b.rating - a.rating; // 임시로 평점 기준
       return 0;
     });
 
@@ -88,6 +88,13 @@ const CustomerMain = () => {
       </Box>
 
       <Box className="content-area">
+        {/* 지도 영역 */}
+        <Box sx={{ height: 200, bgcolor: '#e8f5e8', borderRadius: 1, mb: 2, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <Typography variant="body1" color="text.secondary">
+            🗺️ 지도 영역 (추후 구글맵 연동)
+          </Typography>
+        </Box>
+
         {/* 검색 */}
         <TextField
           fullWidth
@@ -113,6 +120,7 @@ const CustomerMain = () => {
             onChange={(e) => setSortBy(e.target.value)}
           >
             <MenuItem value="distance">거리순</MenuItem>
+            <MenuItem value="recommend">추천순</MenuItem>
             <MenuItem value="rating">평점순</MenuItem>
           </Select>
         </FormControl>

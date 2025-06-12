@@ -3,18 +3,21 @@ import {
   Box,
   Typography,
   Card,
-  CardContent,
   Button,
   IconButton,
   Chip,
-  Fab
+  Fab,
+  TextField,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions
 } from '@mui/material';
-import { Edit, Add } from '@mui/icons-material';
+import { Edit, Add, PhotoCamera } from '@mui/icons-material';
 import { useParams } from 'react-router-dom';
 import Header from '../../components/common/Header';
+import { OwnerNavigation } from '../../components/common/Navigation';
 import { formatNumber } from '../../utils/helpers';
-import Modal from '../../components/ui/Modal';
-import Input from '../../components/ui/Input';
 
 const MenuManagement = () => {
   const { storeId } = useParams();
@@ -132,9 +135,19 @@ const MenuManagement = () => {
       <Header title="메뉴 관리" />
       
       <Box className="content-area">
-        <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 2 }}>
-          등록된 메뉴 ({menus.length}개)
-        </Typography>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 2 }}>
+          <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+            등록된 메뉴 ({menus.length}개)
+          </Typography>
+          <Button
+            variant="contained"
+            startIcon={<Add />}
+            onClick={handleAdd}
+            size="small"
+          >
+            메뉴 추가
+          </Button>
+        </Box>
 
         {menus.map((menu) => (
           <Card key={menu.id} className="menu-item" sx={{ mb: 2 }}>
@@ -186,63 +199,70 @@ const MenuManagement = () => {
         </Button>
       </Box>
 
-      {/* 새 메뉴 추가 FAB */}
-      <Fab
-        color="primary"
-        aria-label="add"
-        onClick={handleAdd}
-        sx={{
-          position: 'fixed',
-          bottom: 90,
-          right: 20,
-        }}
-      >
-        <Add />
-      </Fab>
-
-      {/* 메뉴 추가/수정 모달 */}
-      <Modal
+      {/* 메뉴 추가/수정 다이얼로그 */}
+      <Dialog
         open={openModal}
         onClose={() => setOpenModal(false)}
-        title={editingMenu ? '메뉴 수정' : '새 메뉴 추가'}
-        actions={
-          <>
-            <Button onClick={() => setOpenModal(false)}>
-              취소
-            </Button>
-            <Button variant="contained" onClick={handleSave}>
-              저장
-            </Button>
-          </>
-        }
+        maxWidth="sm"
+        fullWidth
       >
-        <Box sx={{ pt: 1 }}>
-          <Input
-            label="메뉴명"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-            margin="normal"
-          />
-          <Input
-            label="설명"
-            name="description"
-            value={formData.description}
-            onChange={handleInputChange}
-            margin="normal"
-            multiline
-            rows={2}
-          />
-          <Input
-            label="가격"
-            name="price"
-            type="number"
-            value={formData.price}
-            onChange={handleInputChange}
-            margin="normal"
-          />
-        </Box>
-      </Modal>
+        <DialogTitle>
+          {editingMenu ? '메뉴 수정' : '새 메뉴 추가'}
+        </DialogTitle>
+        <DialogContent>
+          <Box sx={{ pt: 1 }}>
+            <TextField
+              fullWidth
+              label="메뉴명"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              margin="normal"
+            />
+            <TextField
+              fullWidth
+              label="설명"
+              name="description"
+              value={formData.description}
+              onChange={handleInputChange}
+              margin="normal"
+              multiline
+              rows={2}
+            />
+            <TextField
+              fullWidth
+              label="가격"
+              name="price"
+              type="number"
+              value={formData.price}
+              onChange={handleInputChange}
+              margin="normal"
+            />
+            
+            {/* 이미지 업로드 */}
+            <Box sx={{ mt: 2, mb: 2 }}>
+              <Typography variant="body2" sx={{ mb: 1 }}>메뉴 사진</Typography>
+              <Button
+                variant="outlined"
+                startIcon={<PhotoCamera />}
+                fullWidth
+              >
+                사진 업로드
+              </Button>
+            </Box>
+          </Box>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setOpenModal(false)}>
+            취소
+          </Button>
+          <Button variant="contained" onClick={handleSave}>
+            저장
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      <OwnerNavigation />
     </Box>
   );
 };
