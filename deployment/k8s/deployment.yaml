@@ -78,22 +78,24 @@ metadata:
   name: hi-frontend-ingress
   namespace: ns-hiorder
   annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
-    nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/use-regex: "false"
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx
   rules:
   - http:
       paths:
-      - path: /frontend(/|$)(.*)
+      # 메인 경로 (모든 요청을 프론트엔드로)
+      - path: /
         pathType: Prefix
         backend:
           service:
             name: hi-frontend-service
             port:
               number: 80
-      - path: /()(.*)
+      # 프론트엔드 전용 경로
+      - path: /frontend
         pathType: Prefix
         backend:
           service:
