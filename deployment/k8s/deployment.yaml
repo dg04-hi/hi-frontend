@@ -49,11 +49,6 @@ spec:
           periodSeconds: 10
           timeoutSeconds: 5
           failureThreshold: 3
-        securityContext:
-          runAsNonRoot: true
-          runAsUser: 101
-          allowPrivilegeEscalation: false
-          readOnlyRootFilesystem: false
 ---
 apiVersion: v1
 kind: Service
@@ -79,23 +74,12 @@ metadata:
   namespace: ns-hiorder
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/use-regex: "false"
-    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
   rules:
   - http:
       paths:
-      # 메인 경로 (모든 요청을 프론트엔드로)
       - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: hi-frontend-service
-            port:
-              number: 80
-      # 프론트엔드 전용 경로
-      - path: /frontend
         pathType: Prefix
         backend:
           service:
